@@ -90,7 +90,7 @@ You will also create a new `Sale` clustered columnstore table within the `wwi_st
 
     ![The SQL script context menu item is highlighted.](images/synapse-studio-new-sql-script.png "New SQL script")
 
-3. In the toolbar menu, connect to the **SQL Pool** database to execute the query.
+3. In the toolbar menu, connect to the **SQLPool01** database to execute the query.
 
     ![The connect to option is highlighted in the query toolbar.](images/synapse-studio-query-toolbar-connect.png "Query toolbar")
 
