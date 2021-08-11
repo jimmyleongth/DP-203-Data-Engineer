@@ -82,7 +82,7 @@ This lab requires a dedicated SQL pool. As a first step, create a new dedicated 
 4. Change directories to the root of this repo within your local file system.
 
     ```powershell
-    cd C:\dp203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
+    cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
     ```
 
 5. Execute the following to sign in to your Microsoft user account when prompted:
