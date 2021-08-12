@@ -50,11 +50,9 @@ In this lab, you will use an Azure Databricks workspace and perform Structured S
 
 5. Enter a name for your cluster, such as `Test Cluster`.
 6. Select the **Databricks RuntimeVersion**. We recommend the latest runtime and **Scala 2.12**.
-7. Set the value of Min Workers to **1**, and the Max Workers to a value of **2**
-8. Select the default values for the cluster configuration.
-9. Check **Spot instances** to optimize costs.
-10. Select **Create Cluster**.
-11. Wait for the cluster to start. Please note you will have to wait 5 - 7 minutes for the cluster to start up before moving onto the next task.
+7. Select the default values for the cluster configuration.
+8. Select **Create Cluster**.
+9. Wait for the cluster to start. Please note you will have to wait 5 - 7 minutes for the cluster to start up before moving onto the next task.
 
 #### Task 2: Clone the Databricks archive
 
