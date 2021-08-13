@@ -10,7 +10,7 @@ The following instructions enables learners to prepare their lab environments fo
 
 **Time to complete**: It takes around 5 minutes to perform the steps below and initiate the automated setup scripts. The scripts may take an hour or more to complete.
 
-> **Note**: These instructions are designed to be used in the pre-installed virtual machine provided for the course. If you aren't using the pre-installed virtual machine, you can follow the [full setup instructions](00FullSetupREADME.md).
+> **Note**: These instructions are designed to be used in the pre-installed virtual machine provided for the course.
 
 ## Requirements
 
