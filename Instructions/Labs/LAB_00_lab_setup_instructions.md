@@ -22,6 +22,8 @@ Perform the following tasks to prepare your environment for the labs.
 
 1. Use the Windows **Search** box to search for **Windows PowerShell**, and then run it as an administrator.
 
+    > **Note**: Make sure you run **Windows Powershell**, <u>not</u> Windows PowerShell ISE; and be sure to run it as Administrator.
+
 2. In Windows PowerShell, run the following commands to download the required course files. This may take a few minutes.
 
     ```
@@ -38,7 +40,7 @@ Perform the following tasks to prepare your environment for the labs.
     Set-ExecutionPolicy Unrestricted
     ```
 
-    > **Note**: If you receive a prompt that you are installing the module from an untrusted repository, select **Yes to All** to proceed with the setup.
+    > **Note**: If you receive a prompt that you are installing the module from an untrusted repository, enter **A** to select the *Yes to All* option.
 
 4. In Windows PowerShell, use the following command to change directories to the folder containing the automation scripts.
 
@@ -60,9 +62,9 @@ Perform the following tasks to prepare your environment for the labs.
     .\dp-203-setup.ps1
     ```
 
-7. When prompted, sign into your Azure account again (this is required so that the script can manage resources in your Azure subscription).
+7. When prompted, sign into your Azure account again (this is required so that the script can manage resources in your Azure subscription - be sure you use the same credentials as before).
 
-8. If you have more than one Azure subscription, when prompted, select the one you want to use in the labs.
+8. If you have more than one Azure subscription, when prompted, select the one you want to use in the labs by entering its number in the list of subscriptions.
 
 9. When prompted, enter a suitably complex password for the SQL Database (make a note of this password in case you need it later).
 
