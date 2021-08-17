@@ -432,7 +432,7 @@
     },
     {
         "type":"Microsoft.EventHub/namespaces",
-        "apiVersion":"2018-01-01-preview",
+        "apiVersion":"2021-01-01-preview",
         "name":"[variables('eventHubNameSpace')]",
         "location": "[variables('location')]",
         "sku":{
@@ -449,7 +449,7 @@
     },
     {
       "type":"Microsoft.EventHub/namespaces/AuthorizationRules",
-      "apiVersion":"2017-04-01",
+      "apiVersion":"2021-01-01-preview",
       "name":"[concat(variables('eventHubNameSpace'), '/',variables('managedAccessPolicyName'))]",
       "location": "[variables('location')]",
       "dependsOn":[
@@ -465,7 +465,7 @@
   },
   {
       "type":"Microsoft.EventHub/namespaces/AuthorizationRules",
-      "apiVersion":"2017-04-01",
+      "apiVersion":"2021-01-01-preview",
       "name":"[concat(variables('eventHubNameSpace'), '/RootManageSharedAccessKey')]",
       "location": "[variables('location')]",
       "dependsOn":[
@@ -481,7 +481,7 @@
   },
   {
       "type":"Microsoft.EventHub/namespaces/eventhubs",
-      "apiVersion":"2017-04-01",
+      "apiVersion":"2021-01-01-preview",
       "name":"[concat(variables('eventHubNamespace'), '/', variables('eventHubName'))]",
       "location": "[variables('location')]",
       "dependsOn":[
@@ -495,7 +495,7 @@
   },
   {
       "type":"Microsoft.EventHub/namespaces/networkRuleSets",
-      "apiVersion":"2018-01-01-preview",
+      "apiVersion":"2021-01-01-preview",
       "name":"[concat(variables('eventHubNamespace'), '/default')]",
       "location": "[variables('location')]",
       "dependsOn":[
