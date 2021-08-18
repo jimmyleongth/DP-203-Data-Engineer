@@ -1,5 +1,4 @@
 ﻿# Import modules
-Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Import-Module Az.CosmosDB
 Import-Module "..\solliance-synapse-automation"
 
@@ -12,11 +11,21 @@ $dataflowsPath = "..\dataflows"
 $pipelinesPath = "..\pipelines"
 $sqlScriptsPath = "..\sql"
 
-# Use must have signed in using az login before running this script
+# Sign out to clear any cached tokens
+az logout
+
+# Use must sign in using az login
+Write-Host "Sign into Azure using your credentials.."
+az login
 $userName = ((az ad signed-in-user show) | ConvertFrom-JSON).UserPrincipalName
+write-host "User Name: $userName"
+$userId = az ad signed-in-user show --query objectId -o tsv
+Write-Host "User ID: $userId"
 
 # Now sign in again for resource management and select subscription
+Write-Host "Now sign in again to allow this script to create resources..."
 Connect-AzAccount
+
 $subs = Get-AzSubscription | Select-Object
 if($subs.GetType().IsArray -and $subs.length -gt 1){
         Write-Host "Multiple subscriptions detected - please select the one you want to use:"
@@ -188,15 +197,14 @@ $global:tokenTimes = [ordered]@{
 
 # Add the current userto Admin roles
 Write-Host "Granting $userName admin permissions..."
-$user = Get-AzADUser -UserPrincipalName $userName
-Assign-SynapseRole -WorkspaceName $workspaceName -RoleId "6e4bf58a-b8e1-4cc3-bbf9-d73143322b78" -PrincipalId $user.id  # Workspace Admin
-Assign-SynapseRole -WorkspaceName $workspaceName -RoleId "7af0c69a-a548-47d6-aea3-d00e69bd83aa" -PrincipalId $user.id  # SQL Admin
-Assign-SynapseRole -WorkspaceName $workspaceName -RoleId "c3a6d2f1-a26f-4810-9b0f-591308d5cbf1" -PrincipalId $user.id  # Apache Spark Admin
+Assign-SynapseRole -WorkspaceName $workspaceName -RoleId "6e4bf58a-b8e1-4cc3-bbf9-d73143322b78" -PrincipalId $userId  # Workspace Admin
+Assign-SynapseRole -WorkspaceName $workspaceName -RoleId "7af0c69a-a548-47d6-aea3-d00e69bd83aa" -PrincipalId $userId  # SQL Admin
+Assign-SynapseRole -WorkspaceName $workspaceName -RoleId "c3a6d2f1-a26f-4810-9b0f-591308d5cbf1" -PrincipalId $userId  # Apache Spark Admin
 
 #add the permission to the datalake to workspace
 $id = (Get-AzADServicePrincipal -DisplayName $workspacename).id
 New-AzRoleAssignment -Objectid $id -RoleDefinitionName "Storage Blob Data Owner" -Scope "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$dataLakeAccountName" -ErrorAction SilentlyContinue;
-New-AzRoleAssignment -SignInName $username -RoleDefinitionName "Storage Blob Data Owner" -Scope "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$dataLakeAccountName" -ErrorAction SilentlyContinue;
+New-AzRoleAssignment -SignInName $userName -RoleDefinitionName "Storage Blob Data Owner" -Scope "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$dataLakeAccountName" -ErrorAction SilentlyContinue;
 
 Write-Information "Setting Key Vault Access Policy"
 Set-AzKeyVaultAccessPolicy -ResourceGroupName $resourceGroupName -VaultName $keyVaultName -UserPrincipalName $userName -PermissionsToSecrets set,delete,get,list
