@@ -11,18 +11,11 @@ $dataflowsPath = "..\dataflows"
 $pipelinesPath = "..\pipelines"
 $sqlScriptsPath = "..\sql"
 
-# Sign out to clear any cached tokens
-az logout
-
-# Use must sign in using az login
+# User must sign in using az login
 Write-Host "Sign into Azure using your credentials.."
 az login
-$userName = ((az ad signed-in-user show) | ConvertFrom-JSON).UserPrincipalName
-write-host "User Name: $userName"
-$userId = az ad signed-in-user show --query objectId -o tsv
-Write-Host "User ID: $userId"
 
-# Now sign in again for resource management and select subscription
+# Now sign in again for PowerShell resource management and select subscription
 Write-Host "Now sign in again to allow this script to create resources..."
 Connect-AzAccount
 
@@ -60,7 +53,13 @@ if($subs.GetType().IsArray -and $subs.length -gt 1){
         az account set --subscription $selectedSub
 }
 
+$userName = ((az ad signed-in-user show) | ConvertFrom-JSON).UserPrincipalName
+write-host "User Name: $userName"
+$userId = az ad signed-in-user show --query objectId -o tsv
+Write-Host "User ID: $userId"
+
 # Prompt user for a password for the SQL Database
+write-host ""
 $sqlPassword = ""
 $complexPassword = 0
 
