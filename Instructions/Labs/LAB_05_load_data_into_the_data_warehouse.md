@@ -253,7 +253,7 @@ Now let's see how to perform the same load operation with the COPY statement.
     TRUNCATE TABLE wwi_staging.SaleHeap;
     GO
 
-    -- Replace <PrimaryStorage> with the workspace default storage account name.
+    -- Replace SUFFIX with the unique suffix for your resources
     COPY INTO wwi_staging.SaleHeap
     FROM 'https://asadatalakeSUFFIX.dfs.core.windows.net/wwi-02/sale-small/Year=2019'
     WITH (
@@ -301,7 +301,7 @@ The data has the following fields: `Date`, `NorthAmerica`, `SouthAmerica`, `Euro
         )
     GO
 
-    -- Replace <PrimaryStorage> with the workspace default storage account name.
+    -- Replace SUFFIX with the unique suffix for your resources
     COPY INTO wwi_staging.DailySalesCounts
     FROM 'https://asadatalakeSUFFIX.dfs.core.windows.net/wwi-02/campaign-analytics/dailycounts.txt'
     WITH (
