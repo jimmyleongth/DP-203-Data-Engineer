@@ -93,7 +93,7 @@ This lab requires a dedicated SQL pool. As a first step, create a new dedicated 
 
     > [!WARNING]: You may receive the message "TenantId 'xxxxxx-xxxx-xxxx-xxxx' contains more than one active subscription.
 
-6. Execute the following. You will be directed to the browser to sign into your Azure account. Once you have signed in, move to the next step:
+6. You will be directed to the browser to sign into your Azure account. Once you have signed in, move to the next step. Execute the following:
 
     ```powershell
     az login
