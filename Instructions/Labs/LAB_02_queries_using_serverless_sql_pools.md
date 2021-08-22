@@ -26,7 +26,7 @@ In this module, the student will be able to:
     - [Task 2: Create an external table for 2019 sales data](#task-2-create-an-external-table-for-2019-sales-data)
     - [Task 3: Create an external table for CSV files](#task-3-create-an-external-table-for-csv-files)
     - [Task 4: Create a view with a serverless SQL pool](#task-4-create-a-view-with-a-serverless-sql-pool)
-  - [Exercise 2: Securing access to data through using a serverless SQL pool in Azure Synapse Analytics](#exercise-2-securing-access-to-data-through-using-a-serverless-sql-pool-in-azure-synapse-analytics)
+  - [Exercise 2: Securing access to data using a serverless SQL pool in Azure Synapse Analytics](#exercise-2-securing-access-to-data-through-using-a-serverless-sql-pool-in-azure-synapse-analytics)
     - [Task 1: Create Azure Active Directory security groups](#task-1-create-azure-active-directory-security-groups)
     - [Task 2: Add group members](#task-2-add-group-members)
     - [Task 3: Configure data lake security - Role-Based Access Control (RBAC)](#task-3-configure-data-lake-security---role-based-access-control-rbac)
@@ -307,7 +307,7 @@ Let's create a view to wrap a SQL query. Views allow you to reuse queries and ar
     - **3) External file formats**: `QuotedCsvWithHeader` and `SynapseParquetFormat`.
     - **4) Views**: `CustomerInfo`. 
 
-## Exercise 2: Securing access to data through using a serverless SQL pool in Azure Synapse Analytics
+## Exercise 2: Securing access to data using a serverless SQL pool in Azure Synapse Analytics
 
 Tailwind Traders wants to enforce that any kind of modifications to sales data can happen in the current year only, while allowing all authorized users to query the entirety of data. They have a small group of admins who can modify historic data if needed.
 
