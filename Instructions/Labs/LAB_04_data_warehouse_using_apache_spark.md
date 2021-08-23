@@ -59,7 +59,7 @@ This lab requires a dedicated SQL pool. As a first step, create a new dedicated 
 
     ![The new button is highlighted.](images/new-dedicated-sql-pool.png "New dedicated SQL pool")
 
-4. In the `Create dedicated SQL pool` form, enter **`SQLPool01`** (copy and paste since the name must be exact) for the pool name, then set the performance level to **DW200c**. Select **Create** on the validation step.
+4. In the `Create dedicated SQL pool` form, enter **`SQLPool01`** (copy and paste since the name must be exact) for the pool name, then set the performance level to **DW200c**. Click **Review + create**. Select **Create** on the validation step.
 
     ![The form is completed as described.](images/create-dedicated-sql-pool.png "Create dedicated SQL pool")
 
