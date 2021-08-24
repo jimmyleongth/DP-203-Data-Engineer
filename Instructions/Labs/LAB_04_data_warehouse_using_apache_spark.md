@@ -101,7 +101,7 @@ This lab requires a dedicated SQL pool. As a first step, create a new dedicated 
 
 7. **Wait until the dedicated SQL pool is created**, then execute `.\02-environment-setup-sql.ps1`
 
-   1. You will be prompted to setup your Azure PowerShell and Azure CLI context.
+   1. You may be prompted to setup your Azure PowerShell and Azure CLI context.
 
    2. If you have more than one Azure Subscription, you will be prompted to enter the name of your desired Azure Subscription. You can copy and paste the value from the list to select one. For example:
 
