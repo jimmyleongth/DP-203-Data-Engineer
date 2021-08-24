@@ -77,7 +77,7 @@ This lab requires a dedicated SQL pool. As a first step, create a new dedicated 
     Set-ExecutionPolicy Unrestricted
     ```
 
-    > [!Note]: If you receive a prompt that you are installing the module from an untrusted repository, select **Yes to All** to proceed with the setup.
+    > **Note**: If you receive a prompt that you are installing the module from an untrusted repository, select **Yes to All** to proceed with the setup.
 
 4. Change directories to the root of this repo within your local file system.
 
@@ -91,7 +91,7 @@ This lab requires a dedicated SQL pool. As a first step, create a new dedicated 
     Connect-AzAccount
     ```
 
-    > [!WARNING]: You may receive the message "TenantId 'xxxxxx-xxxx-xxxx-xxxx' contains more than one active subscription.
+    > **WARNING**: You may receive the message "TenantId 'xxxxxx-xxxx-xxxx-xxxx' contains more than one active subscription.
 
 6. You will be directed to the browser to sign into your Azure account. Once you have signed in, move to the next step. Execute the following:
 
