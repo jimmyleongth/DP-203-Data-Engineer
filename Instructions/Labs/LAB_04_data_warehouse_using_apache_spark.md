@@ -159,7 +159,7 @@ Azure Synapse Studio provides numerous ways to explore data, from a simple previ
 
     ![The sale-poc folder is highlighted within the wwi-02 container in the data lake.](images/wwi-02-sale-poc.png "sale-poc folder")
 
-6. The `sale-poc` contains sales data for the month of May, 2017. There are 31 files in the folder, one for each day of the month. These files were imported by a temporary process to account for an issue with Tailspin's import process. Let's now take a few minutes to explore some of the files.
+6. The `sale-poc` contains sales data for the month of May, 2017. There are some files in the folder. These files were imported by a temporary process to account for an issue with Tailspin's import process. Let's now take a few minutes to explore some of the files.
 
 7. Right-click the first file in the list, `sale-20170501.csv`, and select **Preview** from the context menu.
 
