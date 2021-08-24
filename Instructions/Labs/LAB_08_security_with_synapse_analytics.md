@@ -6,9 +6,9 @@ lab:
 
 # Module 8 - End-to-end security with Azure Synapse Analytics
 
-In this module, students will learn how to secure a Synapse Analytics workspace and its supporting infrastructure. The student will observe the SQL Active Directory Admin, manage IP firewall rules, manage secrets with Azure Key Vault and access those secrets through a Key Vault linked service and pipeline activities. The student will understand how to implement column-level security, row-level security, and dynamic data masking when using dedicated SQL pools.
+In this module, you will learn how to secure a Synapse Analytics workspace and its supporting infrastructure. You will observe the SQL Active Directory Admin, manage IP firewall rules, manage secrets with Azure Key Vault and access those secrets through a Key Vault linked service and pipeline activities. You will understand how to implement column-level security, row-level security, and dynamic data masking when using dedicated SQL pools.
 
-In this module, the student will be able to:
+After completing this module, you will be able to:
 
 - Secure Azure Synapse Analytics supporting infrastructure
 - Secure the Azure Synapse Analytics workspace and managed services
@@ -65,7 +65,7 @@ For the remainder of this guide, the following terms will be used for various AS
 
 ## Lab setup and pre-requisites
 
-- You have successfully completed [Module 0](../00/README.md) to create your lab environment.
+- Before starting this lab, you must complete **Lab 7: *Integrate data from notebooks with Azure Data Factory or Azure Synapse Pipelines***.
 
 ## Exercise 0: Start the dedicated SQL pool
 

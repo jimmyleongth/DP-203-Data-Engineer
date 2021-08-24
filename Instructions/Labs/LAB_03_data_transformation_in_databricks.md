@@ -6,9 +6,9 @@ lab:
 
 # Module 3 - Data exploration and transformation in Azure Databricks
 
-This module teaches how to use various Apache Spark DataFrame methods to explore and transform data in Azure Databricks. The student will learn how to perform standard DataFrame methods to explore and transform data. They will also learn how to perform more advanced tasks, such as removing duplicate data, manipulate date/time values, rename columns, and aggregate data.
+This module teaches how to use various Apache Spark DataFrame methods to explore and transform data in Azure Databricks. You will learn how to perform standard DataFrame methods to explore and transform data. You will also learn how to perform more advanced tasks, such as removing duplicate data, manipulate date/time values, rename columns, and aggregate data.
 
-In this module the student will be able to:
+After completing this module, you will be able to:
 
 - Use DataFrames in Azure Databricks to explore and filter data
 - Cache a DataFrame for faster subsequent queries
@@ -22,7 +22,7 @@ In this module the student will be able to:
 - [Module 3 - Data exploration and transformation in Azure Databricks](#module-3---data-exploration-and-transformation-in-azure-databricks)
   - [Lab details](#lab-details)
   - [Lab 1 - Working with DataFrames](#lab-1---working-with-dataframes)
-    - [Before the hands-on lab](#before-the-hands-on-lab)
+    - [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
     - [Exercise 1: Complete the lab notebook](#exercise-1-complete-the-lab-notebook)
       - [Task 1: Clone the Databricks archive](#task-1-clone-the-databricks-archive)
       - [Task 2: Complete the Describe a DataFrame notebook](#task-2-complete-the-describe-a-dataframe-notebook)
@@ -40,9 +40,9 @@ In this module the student will be able to:
 
 Your data processing in Azure Databricks is accomplished by defining DataFrames to read and process the Data. This lab will introduce how to read your data using Azure Databricks DataFrames. You need to complete the exercises within Databricks Notebooks. To begin, you need to have access to an Azure Databricks workspace. If you do not have a workspace available, follow the instructions below. Otherwise, you can skip ahead to the `Clone the Databricks archive` step.
 
-### Before the hands-on lab
+### Lab setup and pre-requisites
 
-- You have successfully completed [Module 0](../00/README.md) to create your lab environment.
+- You have successfully completed the setup steps to create your lab environment.
 
 ### Exercise 1: Complete the lab notebook
 

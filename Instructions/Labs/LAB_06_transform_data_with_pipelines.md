@@ -7,9 +7,9 @@ lab:
 
 # Module 6 - Transform data with Azure Data Factory or Azure Synapse Pipelines
 
-This module teaches students how to build data integration pipelines to ingest from multiple data sources, transform data using mapping data flows and notebooks, and perform data movement into one or more data sinks.
+This module teaches you how to build data integration pipelines to ingest from multiple data sources, transform data using mapping data flows and notebooks, and perform data movement into one or more data sinks.
 
-In this module, the student will be able to:
+After completing this module, you will be able to:
 
 - Execute code-free transformations at scale with Azure Synapse Pipelines
 - Create data pipeline to import poorly formatted CSV files
@@ -43,7 +43,7 @@ In this module, the student will be able to:
 
 ## Lab setup and pre-requisites
 
-- You have successfully completed [Module 0](../00/README.md) to create your lab environment.
+- Before starting this lab, you must complete **Lab 5: *Ingest and load data into the Data Warehouse***.
 
 ## Exercise 0: Start the dedicated SQL pool
 

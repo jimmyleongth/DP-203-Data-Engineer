@@ -6,9 +6,9 @@ lab:
 
 # Module 1 - Explore compute and storage options for data engineering workloads
 
-This module teaches ways to structure the data lake, and to optimize the files for exploration, streaming, and batch workloads. The student will learn how to organize the data lake into levels of data refinement as they transform files through batch and stream processing. Then they will learn how to create indexes on their datasets, such as CSV, JSON, and Parquet files, and use them for potential query and workload acceleration.
+This module teaches ways to structure the data lake, and to optimize the files for exploration, streaming, and batch workloads. You will learn how to organize the data lake into levels of data refinement as they transform files through batch and stream processing. Then you will learn how to create indexes on their datasets, such as CSV, JSON, and Parquet files, and use them for potential query and workload acceleration.
 
-In this module, the student will be able to:
+After completing this module, you will be able to:
 
 - Combine streaming and batch processing with a single pipeline
 - Organize the data lake into levels of file transformation
@@ -18,6 +18,7 @@ In this module, the student will be able to:
 
 - [Module 1 - Explore compute and storage options for data engineering workloads](#module-1---explore-compute-and-storage-options-for-data-engineering-workloads)
   - [Lab details](#lab-details)
+    - [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
   - [Lab 1 - Delta Lake architecture](#lab-1---delta-lake-architecture)
     - [Exercise 1: Complete the lab notebook](#exercise-1-complete-the-lab-notebook)
       - [Task 1: Clone the Databricks archive](#task-1-clone-the-databricks-archive)
@@ -26,6 +27,10 @@ In this module, the student will be able to:
       - [Task 1: Index the Data Lake storage with Hyperspace](#task-1-index-the-data-lake-storage-with-hyperspace)
       - [Task 2: Explore the Data Lake storage with the MSSparkUtil library](#task-2-explore-the-data-lake-storage-with-the-mssparkutil-library)
     - [Resources](#resources)
+
+### Lab setup and pre-requisites
+
+- You have successfully completed the setup steps to create your lab environment.
 
 ## Lab 1 - Delta Lake architecture
 

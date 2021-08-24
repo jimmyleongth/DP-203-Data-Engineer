@@ -7,9 +7,9 @@ lab:
 
 # Module 7 - Integrate data from notebooks with Azure Data Factory or Azure Synapse Pipelines
 
-The student will learn how to create linked services, and orchestrate data movement and transformation in Azure Synapse Pipelines.
+You will learn how to create linked services, and orchestrate data movement and transformation in Azure Synapse Pipelines.
 
-In this module, the student will be able to:
+After completing this module, you will be able to:
 
 - Orchestrate data movement and transformation in Azure Synapse Pipelines
 
@@ -32,11 +32,11 @@ In this module, the student will be able to:
 
 ## Lab setup and pre-requisites
 
-- You have successfully completed [Module 0](../00/README.md) to create your lab environment.
+- Before starting this lab, you must complete **Lab 6: *Transform data with Azure Data Factory or Azure Synapse Pipelines***.
 
 ## Exercise 1: Linked service and datasets
 
-**Note**: Complete this exercise if you **have not** completed Module 8, or if you do not have the following Synapse artifacts:
+**Note**: Complete this exercise if you **have not** completed Module 6, or if you do not have the following Synapse artifacts:
 
 - Linked services:
   - `asacosmosdb01`

@@ -6,9 +6,9 @@ lab:
 
 # Module 4 - Explore, transform, and load data into the Data Warehouse using Apache Spark
 
-This module teaches how to explore data stored in a data lake, transform the data, and load data into a relational data store. The student will explore Parquet and JSON files and use techniques to query and transform JSON files with hierarchical structures. Then the student will use Apache Spark to load data into the data warehouse and join Parquet data in the data lake with data in the dedicated SQL pool.
+This module teaches how to explore data stored in a data lake, transform the data, and load data into a relational data store. You will explore Parquet and JSON files and use techniques to query and transform JSON files with hierarchical structures. Then you will use Apache Spark to load data into the data warehouse and join Parquet data in the data lake with data in the dedicated SQL pool.
 
-In this module, the student will be able to:
+After completing this module, you will be able to:
 
 - Perform Data Exploration in Synapse Studio
 - Ingest data with Spark notebooks in Azure Synapse Analytics
@@ -39,7 +39,7 @@ In this module, the student will be able to:
 
 ## Lab setup and pre-requisites
 
-- You have successfully completed [Module 0](../00/README.md) to create your lab environment.
+- You have successfully completed the setup steps to create your lab environment.
 
 ## Exercise 0: Create a new dedicated SQL pool and run setup script
 

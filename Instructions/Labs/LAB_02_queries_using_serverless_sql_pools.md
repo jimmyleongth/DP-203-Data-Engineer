@@ -6,9 +6,9 @@ lab:
 
 # Module 2 - Run interactive queries using serverless SQL pools
 
-In this module, students will learn how to work with files stored in the data lake and external file sources, through T-SQL statements executed by a serverless SQL pool in Azure Synapse Analytics. Students will query Parquet files stored in a data lake, as well as CSV files stored in an external data store. Next, they will create Azure Active Directory security groups and enforce access to files in the data lake through Role-Based Access Control (RBAC) and Access Control Lists (ACLs).
+In this module, you will learn how to work with files stored in the data lake and external file sources, through T-SQL statements executed by a serverless SQL pool in Azure Synapse Analytics. You will query Parquet files stored in a data lake, as well as CSV files stored in an external data store. Next, you will create Azure Active Directory security groups and enforce access to files in the data lake through Role-Based Access Control (RBAC) and Access Control Lists (ACLs).
 
-In this module, the student will be able to:
+After completing this module, you will be able to:
 
 - Query Parquet data with serverless SQL pools
 - Create external tables for Parquet and CSV files
@@ -37,7 +37,7 @@ Tailwind Trader's Data Engineers want a way to explore the data lake, transform 
 
 ## Lab setup and pre-requisites
 
-- You have successfully completed [setup](./LAB_00_lab_setup_instructions.md) to create your lab environment.
+- You have successfully completed the setup steps to create your lab environment.
 - You must have permissions to create new Azure Active Directory security groups and assign members to them.
 
 ## Exercise 1: Querying a Data Lake Store using serverless SQL pools in Azure Synapse Analytics
