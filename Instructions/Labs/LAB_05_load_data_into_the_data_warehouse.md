@@ -496,7 +496,7 @@ To run loads with appropriate compute resources, create loading users designated
 
     ![The Parquet format is highlighted.](images/new-dataset-adlsgen2-parquet.png "Select format")
 
-9. In the properties, set the name to **asal400_december_sales (1)** and select the **asadatalakeNNNNNN** linked service **(2)**. Browse to the **`wwi-02/campaign-analytics/sale-20161230-snappy.parquet`** file location **(3)**, select **From sample file (4)** for schema import. Browse to `C:\dp203\data-engineering-ilt-deployment\Allfiles\samplefiles\sale-small-20100102-snappy.parquet` on your computer, then browse to it in the **Select file** field **(5)**. Select **OK (6)**.
+9. In the properties, set the name to **asal400_december_sales (1)** and select the **asadatalakeNNNNNN** linked service **(2)**. Browse to the **`wwi-02/campaign-analytics/sale-20161230-snappy.parquet`** file location **(3)**, select **From sample file (4)** for schema import. Browse to `C:\dp-203\data-engineering-ilt-deployment\Allfiles\samplefiles\sale-small-20100102-snappy.parquet` on your computer, then browse to it in the **Select file** field **(5)**. Select **OK (6)**.
 
     ![The properties are displayed.](images/pipeline-copy-sales-source-dataset.png "Dataset properties")
 

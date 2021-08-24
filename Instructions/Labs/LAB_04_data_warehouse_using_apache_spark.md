@@ -333,7 +333,7 @@ In this task, you will use a Synapse Spark notebook to explore a few of the file
 
     ![On the Develop hub, the Add New Resource (+) button is highlighted and Import is highlighted in the menu.](images/develop-hub-add-new-resource-import.png "Develop hub import notebook")
 
-3. Select the **Lab 2 - Explore with Spark** in the C:\dp203\data-engineering-ilt-deployment\Allfiles\synapse-apache-spark-notebooks folder.
+3. Select the **Lab 2 - Explore with Spark** in the C:\dp-203\data-engineering-ilt-deployment\Allfiles\synapse-apache-spark-notebooks folder.
 
 4. Follow the instructions contained within the notebook to complete the remainder of this task. When you are done with the notebook, return to this guide and continue with the next section.
 
