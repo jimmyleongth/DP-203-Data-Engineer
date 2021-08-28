@@ -188,7 +188,7 @@ You decide to create an external table that connects to the external data source
     GO
     ```
 
-    At the top of the script, we create a `MASTER KEY` with a random password. Next, we create a database-scoped credential for the containers in the external storage account using a shared access signature (SAS) for delegated access. This credential is used when we create the **SqlOnDemandDemo** external data source that points to the location of the external storage account that contains the population data:
+    At the top of the script, we create a MASTER KEY with a random password. Next, we create a database-scoped credential for the containers in the external storage account using a shared access signature (SAS) for delegated access. This credential is used when we create the **SqlOnDemandDemo** external data source that points to the location of the external storage account that contains the population data:
 
     ![The script is displayed.](images/script1.png "Create master key and credential")
 
