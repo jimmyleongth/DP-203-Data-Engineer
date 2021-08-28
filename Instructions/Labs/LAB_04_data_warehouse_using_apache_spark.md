@@ -139,7 +139,7 @@ Azure Synapse Studio provides numerous ways to explore data, from a simple previ
 
     ![The preview dialog for the sale-20170502.csv file is displayed.](images/sale-20170502-csv-preview.png "CSV File preview")
 
-12. It appears this file does not contain column headers, so set the **With column header** option to **off** and inspect the results.
+12. It appears this file does not contain column headers, so set the **With column header** option to **off** and inspect the results (which may take a while to appear).
 
     ![The preview dialog for the sale-20170502.csv file is displayed, with the With column header option set to off.](images/sale-20170502-csv-preview-with-column-header-off.png "CSV File preview")
 
