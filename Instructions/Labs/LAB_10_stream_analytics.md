@@ -272,7 +272,7 @@ In this task, you will configure Stream Analytics to use the event hub you creat
 
     ![The Start button is highlighted on top of the Overview blade.](images/stream-analytics-overview-start-button.png 'Overview')
 
-19. In the Start job blade that appears, select **Now** for the job output start time, then select **Start**. This will start the Stream Analytics job so it will be ready to start processing and sending your events to Power BI later on.
+19. In the Start job blade that appears, select **Now** for the job output start time, then select **Start**. This will start the Stream Analytics job so it will be ready to start processing and sending your events to Azure Synapse Analytics.
 
     ![The Now and Start buttons are highlighted within the Start job blade.](images/stream-analytics-start-job.png 'Start job')
 
@@ -282,15 +282,11 @@ In this task, you will configure Stream Analytics to use the event hub you creat
 
 The data generator console application creates and sends simulated vehicle sensor telemetry for an array of vehicles (denoted by VIN (vehicle identification number)) directly to Event Hubs. For this to happen, you first need to configure it with the Event Hub connection string.
 
-In this task, you will configure and run the data generator. The data generator saves simulated vehicle telemetry data to Event Hubs, prompting your Stream Analytics job to aggregate and analyze the enriched data and send it to Power BI and Synapse Analytics. The final step will be to create the Power BI report in the task that follows.
+In this task, you will configure and run the data generator. The data generator saves simulated vehicle telemetry data to Event Hubs, prompting your Stream Analytics job to aggregate and analyze the enriched data and send it to Synapse Analytics.
 
-1. On your lab VM or computer, download the [TransactionGeneratorExecutable.zip](https://solliancepublicdata.blob.core.windows.net/dataengineering/dp-203/TransactionGeneratorExecutable.zip) file.
-
-2. Extract the zip file to your machine, making note of the extraction location.
-
-3. Open the folder containing the extracted files, then open either the **linux-x64**, **osx-x64**, or **win-x64** subfolder, based on your environment.
-
-4. Within the appropriate subfolder, open the **appsettings.json** file. Paste your **telemetry** Event Hub connection string value next to **EVENT_HUB_CONNECTION_STRING**. Make sure you have quotes ("") around the value, as shown. **Save** the file.
+1. On your lab VM, use Windows Explorer to view the **c:\dp-203\data-engineering-ilt-deployment\Allfiles** folder.
+2. Extract the **TransactionGenerator.zip** archive to a subfolder named **TransactionGenerator**.
+3. In the extracted **TransactionGenerator** folder, open the **appsettings.json** file. Paste your **telemetry** Event Hub connection string value next to **EVENT_HUB_CONNECTION_STRING**. Make sure you have quotes ("") around the value, as shown. **Save** the file.
 
     ![The Event Hub connection string is highlighted within the appsettings.json file.](images/appsettings.png "appsettings.json")
 
@@ -300,25 +296,9 @@ In this task, you will configure and run the data generator. The data generator 
 
     SECONDS_TO_RUN is the maximum amount of time to allow the generator to run before stopping transmission of data. The default value is 1800. Data will also stop transmitting when you enter Ctrl+C while the generator is running, or if you close the window.
 
-5. Run the data generator using one of the following methods, based on your platform:
+4. In the extracted **TransactionGenerator** folder, run **TransactionGenerator.exe**.
 
-   1. Windows:
-
-      * Simply run **TransactionGenerator.exe** inside the **win-x64** folder.
-
-   2. Linux:
-
-      * Navigate to the **linux-x64** folder.
-      * Run `chmod 777 DataGenerator` to provide access to the binary.
-      * Run `./DataGenerator`.
-
-   3. MacOS:
-
-      * Open a new terminal.
-      * Navigate to the **osx-x64** directory.
-      * Run `./DataGenerator`.
-
-6. If you are using Windows and receive a dialog after trying to execute the data generator, select **More info**, then **Run anyway**.
+5. If a **Windows protected your PC** dialog is displayed, select **More info**, then **Run anyway**.
 
     ![More info is highlighted.](images/microsoft-defender-moreinfo.png "Windows protected your PC")
 
