@@ -4,38 +4,16 @@ lab:
     module: 'Module 10'
 ---
 
-# Module 10 - Real-time stream processing with Stream Analytics
+# Lab 10 - Real-time stream processing with Stream Analytics
 
-In this module, you will learn how to process streaming data with Azure Stream Analytics. You will ingest vehicle telemetry data into Event Hubs, then process that data in real time, using various windowing functions in Azure Stream Analytics. They will output the data to Azure Synapse Analytics. Finally, you will learn how to scale the Stream Analytics job to increase throughput.
+In this lab, you will learn how to process streaming data with Azure Stream Analytics. You will ingest vehicle telemetry data into Event Hubs, then process that data in real time, using various windowing functions in Azure Stream Analytics. They will output the data to Azure Synapse Analytics. Finally, you will learn how to scale the Stream Analytics job to increase throughput.
 
-After completing this module, you will be able to:
+After completing this lab, you will be able to:
 
 - Use Stream Analytics to process real-time data from Event Hubs
 - Use Stream Analytics windowing functions to build aggregates and output to Synapse Analytics
 - Scale the Azure Stream Analytics job to increase throughput through partitioning
 - Repartition the stream input to optimize parallelization
-
-## Lab details
-
-- [Module 10 - Real-time stream processing with Stream Analytics](#module-10---real-time-stream-processing-with-stream-analytics)
-  - [Lab details](#lab-details)
-  - [Technology overview](#technology-overview)
-    - [Azure Stream Analytics](#azure-stream-analytics)
-    - [Azure Event Hubs](#azure-event-hubs)
-  - [Scenario overview](#scenario-overview)
-  - [Lab setup and pre-requisites](#lab-setup-and-pre-requisites)
-  - [Exercise 0: Start the dedicated SQL pool](#exercise-0-start-the-dedicated-sql-pool)
-  - [Exercise 1: Configure services](#exercise-1-configure-services)
-    - [Task 1: Configure Event Hubs](#task-1-configure-event-hubs)
-    - [Task 2: Configure Synapse Analytics](#task-2-configure-synapse-analytics)
-    - [Task 3: Configure Stream Analytics](#task-3-configure-stream-analytics)
-  - [Exercise 2: Generate and aggregate data](#exercise-2-generate-and-aggregate-data)
-    - [Task 1: Run data generator](#task-1-run-data-generator)
-    - [Task 2: View aggregate data in Synapse Analytics](#task-2-view-aggregate-data-in-synapse-analytics)
-  - [Exercise 3: Cleanup](#exercise-3-cleanup)
-    - [Task 1: Stop the data generator](#task-1-stop-the-data-generator)
-    - [Task 2: Stop the Stream Analytics job](#task-2-stop-the-stream-analytics-job)
-    - [Task 3: Pause the dedicated SQL pool](#task-3-pause-the-dedicated-sql-pool)
 
 ## Technology overview
 
@@ -63,19 +41,17 @@ In this experience, you will use Azure Event Hubs to ingest streaming vehicle te
 
 ## Lab setup and pre-requisites
 
-- You have successfully completed the setup steps to create your lab environment.
+Before starting this lab, you must complete at least the setup steps in **Lab 4: *Explore, transform, and load data into the Data Warehouse using Apache Spark***.
 
-## Exercise 0: Start the dedicated SQL pool
+This lab uses the dedicated SQL pool you created in the previous lab. You should have paused the SQL pool at the end of the previous lab, so resume it by following these instructions:
 
-This lab uses the dedicated SQL pool. As a first step, make sure it is not paused. If so, start it by following these instructions:
-
-1. Open Synapse Studio (<https://web.azuresynapse.net/>).
+1. Open Azure Synapse Studio (<https://web.azuresynapse.net/>).
 
 2. Select the **Manage** hub.
 
     ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
 
-3. Select **SQL pools** in the left-hand menu **(1)**. If the dedicated SQL pool is paused, hover over the name of the pool and select **Resume (2)**.
+3. Select **SQL pools** in the left-hand menu. If the **SQLPool01** dedicated SQL pool is paused, hover over its name and select **&#9655;**.
 
     ![The resume button is highlighted on the dedicated SQL pool.](images/resume-dedicated-sql-pool.png "Resume")
 
@@ -83,33 +59,33 @@ This lab uses the dedicated SQL pool. As a first step, make sure it is not pause
 
     ![The resume button is highlighted.](images/resume-dedicated-sql-pool-confirm.png "Resume")
 
-    > **Continue to the next exercise** while the dedicated SQL pool resumes.
+5. Continue to the next exercise while the dedicated SQL pool resumes.
 
 ## Exercise 1: Configure services
 
-### Task 1: Configure Event Hubs
-
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. We are using it to temporarily store vehicle telemetry data that is processed and ready to be sent to the real-time dashboard. As data flows into Event Hubs, Azure Stream Analytics will query the data, applying aggregates and tagging anomalies, then send it to Azure Synapse Analytics and Power BI.
+
+### Task 1: Configure Event Hubs
 
 In this task, you will create and configure a new event hub within the provided Event Hubs namespace. This will be used to capture vehicle telemetry after it has been processed and enriched by the Azure function you will create later on.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
-2. Select **Resource groups** from the left-hand menu. Then select the resource group named **data-engineering-synapse**.
+2. Select **Resource groups** in the left-hand menu. Then select the **data-engineering-synapse-*xxxxxxx*** resource group.
 
-3. Select the **Event Hubs Namespace** (`eventhubYOUR_UNIQUE_ID`) from the list of resources in your resource group.
+3. Select the **eventhub*xxxxxxx*** Event Hubs Namespace.
 
     ![The Event Hubs Namespace is selected in the resource group.](images/rg-event-hubs.png "resource group")
 
-4. Within the Event Hubs Namespace blade, select **Event Hubs** within the left-hand menu.
+4. In the Event Hubs Namespace blade, select **Event Hubs** in the left-hand menu.
 
     ![The Event Hubs link is selected in the left-hand menu.](images/event-hubs-link.png 'Event Hubs link')
 
-5. Select the **telemetry** event hub from the list.
+5. Select the **telemetry** event hub.
 
     ![The newly created telemetry event hub is selected.](images/event-hubs-select.png 'Event hubs')
 
-6. Select **Shared access policies** from the left-hand menu.
+6. Select **Shared access policies** in the left-hand menu.
 
     ![The Shared access policies link is selected in the left-hand menu.](images/event-hubs-shared-access-policies-link.png 'Shared access policies link')
 
@@ -119,10 +95,10 @@ In this task, you will create and configure a new event hub within the provided 
 
 8. In the **Add SAS Policy** blade, configure the following:
 
-    - **Name:** Enter "Read".
-    - **Managed:** Unchecked.
-    - **Send:** Unchecked.
-    - **Listen:** Checked.
+    - **Name:** `Read`
+    - **Managed:** Unchecked
+    - **Send:** Unchecked
+    - **Listen:** Checked
 
         ![The Add SAS Policy form is filled out with the previously mentioned settings entered into the appropriate fields.](images/event-hubs-add-sas-policy-read.png 'Add SAS Policy')
 
@@ -130,22 +106,22 @@ In this task, you will create and configure a new event hub within the provided 
 
 9. Select **Create** on the bottom of the form when you are finished entering the values.
 
-10. Select **+ Add** in the top toolbar to create a new shared access policy.
+10. Select **+ Add** in the top toolbar to create a second new shared access policy.
 
     ![The Add button is highlighted.](images/event-hubs-shared-access-policies-add-link.png 'Add')
 
 11. In the **Add SAS Policy** blade, configure the following:
 
-    - **Name:** Enter "Write".
-    - **Managed:** Unchecked.
-    - **Send:** Checked.
-    - **Listen:** Unchecked.
+    - **Name:** `Write`
+    - **Managed:** Unchecked
+    - **Send:** Checked
+    - **Listen:** Unchecked
 
         ![The Add SAS Policy form is filled out with the previously mentioned settings entered into the appropriate fields.](images/event-hubs-add-sas-policy-write.png 'Add SAS Policy')
 
 12. Select **Create** on the bottom of the form when you are finished entering the values.
 
-13. Select your **Write** policy from the list. Copy the **Connection string - primary key** value by selecting the Copy button to the right of the field. **SAVE THIS VALUE** in Notepad or similar text editor for later.
+13. Select your **Write** policy from the list. Copy the **Connection string - primary key** value by selecting the Copy button to the right of the field. Save this value in Notepad or similar text editor for later.
 
     ![The Write policy is selected and its blade displayed. The Copy button next to the Connection string - primary key field is highlighted.](images/event-hubs-write-policy-key.png 'SAS Policy: Write')
 
@@ -155,27 +131,15 @@ Azure Synapse is an end-to-end analytics platform which combines SQL data wareho
 
 In this task, you will create a table in a Synapse dedicated SQL pool to store aggregate vehicle data provided by a Stream Analytics job that processes vehicle telemetry ingested by Event Hubs.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-
-2. Select **Resource groups** from the left-hand menu. Then select the resource group named **data-engineering-synapse**.
-
-3. Select the **Synapse workspace** (`asaworkspaceYOUR_UNIQUE_ID`) from the list of resources in your resource group.
-
-    ![The Synapse workspace is selected in the resource group.](images/rg-synapse-workspace.png "resource group")
-
-4. Select **Open** within the **Open Synapse Studio** box inside the Overview pane.
-
-    ![The Open link is highlighted.](images/open-synapse-studio.png "Open Synapse Studio")
-
-5. Within Synapse Studio, select **Data** in the left-hand menu to navigate to the Data hub.
+1. In the Azure Synapse Studio, select the **Data** hub.
 
     ![The Data hub is highlighted.](images/data-hub.png "Data hub")
 
-6. Select the **Workspace** tab **(1)**, expand Databases and right-click **SQLPool01 (2)**. Select **New SQL script (3)**, then select **Empty script (4)**.
+2. Select the **Workspace** tab, expand **Databases** and right-click **SQLPool01**. Then select **New SQL script**, and select **Empty script**.
 
     ![The New SQL script option is highlighted in the SQLPool01 context menu.](images/synapse-new-script.png "New SQL script")
 
-7. Make sure the script is connected to `SQLPool01`, then replace the script with the following and select **Run** to create a new table:
+3. Make sure the script is connected to **SQLPool01**, then replace the script with the following and select **Run** to create a new table:
 
     ```sql
     CREATE TABLE dbo.VehicleAverages
@@ -200,43 +164,39 @@ Azure Stream Analytics is an event-processing engine that allows you to examine 
 
 In this task, you will configure Stream Analytics to use the event hub you created as a source, query and analyze that data, then send it to Power BI for reporting and aggregated data to Azure Synapse Analytics.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-
-2. Select **Resource groups** from the left-hand menu. Then select the resource group named **data-engineering-synapse**.
-
-3. Select the **Stream Analytics job** (`asaYOUR_UNIQUE_ID`) from the list of resources in your resource group.
+1. In the Azure portal, in the **data-engineering-synapse-*xxxxxxx*** resource group, select the **as*xxxxxxx*** Stream Analytics job.
 
     ![The Stream Analytics job is selected in the resource group.](images/rg-stream-analytics.png "resource group")
 
-4. Within the Stream Analytics job, select **Storage account settings** in the left-hand menu, then select **Add storage account**. Since we will use Synapse Analytics as one of the outputs, we need to first configure the job storage account.
+2. Within the Stream Analytics job, select **Storage account settings** in the left-hand menu, then select **Add storage account**. Since we will use Synapse Analytics as one of the outputs, we need to first configure the job storage account.
 
     ![The storage account settings link and add storage account button are highlighted.](images/asa-storage-account.png "Storage account settings")
 
-5. In the **Storage account settings** form, configure the following:
+3. In the **Storage account settings** form, configure the following:
 
    - **Select storage account from your subscriptions:** Selected.
    - **Subscription:** Make sure the subscription you are using for this lab is selected.
-   - **Storage account:** Select the storage account named **asadatalakeYOUR_UNIQUE_ID**.
+   - **Storage account:** Select the storage account named **asadatalake*xxxxxxx***.
    - **Authentication mode:** Select "Connection string".
 
         ![The form is configured as described.](images/asa-storage-account-form.png "Storage account settings")
 
-6. Select **Save**, then **Yes** when prompted to save the storage account settings.
+4. Select **Save**, then **Yes** when prompted to save the storage account settings.
 
-7. Within the Stream Analytics job, select **Inputs** within the left-hand menu.
+5. Within the Stream Analytics job, select **Inputs** within the left-hand menu.
 
     ![The Inputs link is selected in the left-hand menu.](images/inputs-link.png 'Inputs link')
 
-8. Select **+ Add stream input** in the top toolbar, then select **Event Hub** to create a new Event Hub input.
+6. Select **+ Add stream input** in the top toolbar, then select **Event Hub** to create a new Event Hub input.
 
     ![The Add stream input button and Event Hub menu item are highlighted.](images/stream-analytics-add-input-link.png 'Add stream input - Event Hub')
 
-9. In the **New Input** blade, configure the following:
+7. In the **New Input** blade, configure the following:
 
-    - **Name:** Enter "eventhub".
-    - **Select Event Hub from your subscriptions:** Selected.
+    - **Name:** `eventhub`
+    - **Select Event Hub from your subscriptions:** Selected
     - **Subscription:** Make sure the subscription you are using for this lab is selected.
-    - **Event Hub namespace:** Select the Event Hub namespace you are using for this lab.
+    - **Event Hub namespace:** Select the **eventhub*xxxxxxx*** Event Hub namespace.
     - **Event Hub name:** Select **Use existing**, then select **telemetry**, which you created earlier.
     - **Event Hub consumer group:** Select **Use existing**, then select **$Default**.
     - **Authentication mode:** Select **Connection string**.
@@ -245,26 +205,27 @@ In this task, you will configure Stream Analytics to use the event hub you creat
 
         ![The New Input form is filled out with the previously mentioned settings entered into the appropriate fields.](images/stream-analytics-new-input.png 'New Input')
 
-10. Select **Save** on the bottom of the form when you are finished entering the values.
+8. Select **Save** on the bottom of the form when you are finished entering the values.
 
-11. Within the Stream Analytics job blade, select **Outputs** within the left-hand menu.
+9. Within the Stream Analytics job blade, select **Outputs** within the left-hand menu.
 
     ![The Outputs link is selected in the left-hand menu.](images/outputs-link.png 'Outputs link')
 
-12. Select **+ Add** in the top toolbar, then select **Azure Synapse Analytics** to create a new Synapse Analytics output.
+10. Select **+ Add** in the top toolbar, then select **Azure Synapse Analytics** to create a new Synapse Analytics output.
 
     ![The Azure Synapse Analytics menu item is highlighted.](images/stream-analytics-add-output-synapse-link.png "Add output - Azure Synapse Analytics")
 
-13. In the **New Output** blade, configure the following:
+11. In the **New Output** blade, configure the following:
 
-    - **Output alias:** Enter "synapse".
+    - **Output alias:** `synapse`
     - **Select Azure Synapse Analytics from your subscriptions:** Selected.
     - **Subscription:** Select the subscription you are using for this lab.
-    - **Database:** Select "SQLPool01". Make sure your correct Synapse workspace name appears under "Server name".
-    - **Table:** Enter `dbo.VehicleAverages`
-    - **Authentication mode:** Select "Connection string".
-    - **Username:** Enter `asa.sql.admin` (or the dedicated SQL pool username provided to you for this lab)
-    - **Password:** Enter the SQL admin password value you entered when deploying the lab environment, or which was provided to you as part of your hosted lab environment. **Note**: This password is most likely *not* the same as the password you used to sign in to the Azure portal.
+    - **Database:** Select **SQLPool01**. Make sure your correct Synapse workspace name appears under **Server name**.
+    - **Authentication mode:** Select **Connection string**.
+    - **Username:**: `asa.sql.admin`
+    - **Password:** Enter the SQL admin password value you entered when deploying the lab environment, or which was provided to you as part of your hosted lab environment. If you are unsure about your SQL admin username, navigate to the Synapse workspace in the Azure resource group. The SQL admin username is shown in the Overview pane.
+    - **Server name**: asaworkspace*xxxxxxx*
+    - **Table:** `dbo.VehicleAverages`
 
         ![The New Output form is filled out with the previously mentioned settings entered into the appropriate fields.](images/synapse-new-output.png "New Output")
 
@@ -272,13 +233,13 @@ In this task, you will configure Stream Analytics to use the event hub you creat
 
         ![The SQL admin account name is displayed.](images/sql-admin-name.png "SQL admin name")
 
-14. Select **Save** on the bottom of the form when you are finished entering the values.
+12. Select **Save** on the bottom of the form when you are finished entering the values.
 
-15. Within the Stream Analytics job blade, select **Query** within the left-hand menu.
+13. Within the Stream Analytics job blade, select **Query** within the left-hand menu.
 
     ![The Query link is selected in the left-hand menu.](images/query-link.png 'Query link')
 
-16. Clear the edit **Query** window and paste the following in its place:
+14. Enter the following query:
 
     ```sql
     WITH
@@ -303,11 +264,11 @@ In this task, you will configure Stream Analytics to use the event hub you creat
 
     ![The query above has been inserted into the Query window.](images/stream-analytics-query.png 'Query window')
 
-    The query averages the engine temperature and speed over a two second duration. The query aggregates the average engine temperature and speed of all vehicles over the past two minutes, using `TumblingWindow(Duration(minute, 2))`, and outputs these fields to the `synapse` output.
+    The query averages the engine temperature and speed over a two second duration. The query aggregates the average engine temperature and speed of all vehicles over the past two minutes, using **TumblingWindow(Duration(minute, 2))**, and outputs these fields to the **synapse** output.
 
-17. Select **Save query** in the top toolbar when you are finished updating the query.
+15. Select **Save query** in the top toolbar when you are finished updating the query.
 
-18. Within the Stream Analytics job blade, select **Overview** within the left-hand menu. On top of the Overview blade, select **Start**.
+16. Within the Stream Analytics job blade, select **Overview** within the left-hand menu. On top of the Overview blade, select **Start**.
 
     ![The Start button is highlighted on top of the Overview blade.](images/stream-analytics-overview-start-button.png 'Overview')
 
@@ -327,34 +288,34 @@ In this task, you will configure and run the data generator. The data generator 
 
 2. Extract the zip file to your machine, making note of the extraction location.
 
-3. Open the folder containing the extracted files, then open either the `linux-x64`, `osx-x64`, or `win-x64` subfolder, based on your environment.
+3. Open the folder containing the extracted files, then open either the **linux-x64**, **osx-x64**, or **win-x64** subfolder, based on your environment.
 
-4. Within the appropriate subfolder, open the **appsettings.json** file. Paste your `telemetry` Event Hub connection string value next to `EVENT_HUB_CONNECTION_STRING`. Make sure you have quotes ("") around the value, as shown. **Save** the file.
+4. Within the appropriate subfolder, open the **appsettings.json** file. Paste your **telemetry** Event Hub connection string value next to **EVENT_HUB_CONNECTION_STRING**. Make sure you have quotes ("") around the value, as shown. **Save** the file.
 
     ![The Event Hub connection string is highlighted within the appsettings.json file.](images/appsettings.png "appsettings.json")
 
-    > **Note:** Make sure that the connection string ends with `EntityPath=telemetry` (eg. `Endpoint=sb://YOUR_EVENTHUB_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=REDACTED/S/U=;EntityPath=telemetry`). If not, then you did not copy the connection string from the `Write` policy of your event hub.
+    > **Note:** Make sure that the connection string ends with *EntityPath=telemetry* (eg. *Endpoint=sb://YOUR_EVENTHUB_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=REDACTED/S/U=;EntityPath=telemetry*). If not, then you did not copy the connection string from the **Write** policy of your event hub.
 
-    `SECONDS_TO_LEAD` is the amount of time to wait before sending vehicle telemetry data. Default value is `0`.
+    SECONDS_TO_LEAD is the amount of time to wait before sending vehicle telemetry data. Default value is 0.
 
-    `SECONDS_TO_RUN` is the maximum amount of time to allow the generator to run before stopping transmission of data. The default value is `1800`. Data will also stop transmitting when you enter Ctrl+C while the generator is running, or if you close the window.
+    SECONDS_TO_RUN is the maximum amount of time to allow the generator to run before stopping transmission of data. The default value is 1800. Data will also stop transmitting when you enter Ctrl+C while the generator is running, or if you close the window.
 
-5. Execute the data generator using one of the following methods, based on your platform:
+5. Run the data generator using one of the following methods, based on your platform:
 
    1. Windows:
 
-      * Simply execute **TransactionGenerator.exe** inside the `win-x64` folder.
+      * Simply run **TransactionGenerator.exe** inside the **win-x64** folder.
 
    2. Linux:
 
-      * Navigate to the `linux-x64` folder.
+      * Navigate to the **linux-x64** folder.
       * Run `chmod 777 DataGenerator` to provide access to the binary.
       * Run `./DataGenerator`.
 
    3. MacOS:
 
       * Open a new terminal.
-      * Navigate to the `osx-x64` directory.
+      * Navigate to the **osx-x64** directory.
       * Run `./DataGenerator`.
 
 6. If you are using Windows and receive a dialog after trying to execute the data generator, select **More info**, then **Run anyway**.
@@ -375,37 +336,23 @@ As you recall, when you created the query in Stream Analytics, you aggregated th
 
 In this task, you will view the anomaly data within Synapse Analytics.
 
-1. If you have not yet done so, **stop** the **TransactionGenerator**.
-
-2. Navigate to the [Azure portal](https://portal.azure.com).
-
-3. Select **Resource groups** from the left-hand menu. Then select the resource group named **data-engineering-synapse**.
-
-4. Select the **Synapse workspace** (`asaworkspaceYOUR_UNIQUE_ID`) from the list of resources in your resource group.
-
-    ![The Synapse workspace is selected in the resource group.](images/rg-synapse-workspace.png "resource group")
-
-5. Select **Open** within the **Open Synapse Studio** box inside the Overview pane.
-
-    ![The Open link is highlighted.](images/open-synapse-studio.png "Open Synapse Studio")
-
-6. Within Synapse Studio, select **Data** in the left-hand menu to navigate to the Data hub.
+1. In Synapse Studio, select **Data** in the left-hand menu to navigate to the Data hub.
 
     ![The Data hub is highlighted.](images/data-hub.png "Data hub")
 
-7. Select the **Workspace** tab **(1)**, expand the `SQLPool01` database, expand `Tables`, then right-click on the **dbo.VehicleAverages** table **(2)**. If you do not see the table listed, refresh the tables list. Select **New SQL script (3)**, then **Select TOP 100 rows (4)**.
+2. Select the **Workspace** tab, expand the **SQLPool01** database, expand **Tables**, then right-click on the **dbo.VehicleAverages** table (f you do not see the table listed, refresh the tables list). Select **New SQL script**, then **Select TOP 100 rows**.
 
     ![The Select TOP 100 rows menu item is selected.](images/select-top-100-rows.png "Select TOP 100 rows")
 
-8. View the query results and observe the aggregate data stored in `AverageEngineTemperature` and `AverageSpeed`. The `Snapshot` value changes in two-minute intervals between these records.
+3. Run the query and view the results. Observe the aggregate data stored in **AverageEngineTemperature** and **AverageSpeed**. The **Snapshot** value changes in two-minute intervals between these records.
 
    ![The VehicleAverages table output is displayed.](images/synapse-vehicleaverage-table.png "VehicleAverages results")
 
-9. Select the **Chart** view in the Results output, then set the chart type to **Area**. This visualization shows the average engine temperature correlated with the average speed over time. Feel free to experiment with the chart settings. The longer the data generator runs the more data points are generated. The following visualization is for an example of a  session that ran over 10 mins, and may not represent what you see on the screen.
+4. Select the **Chart** view in the Results output, then set the chart type to **Area**. This visualization shows the average engine temperature correlated with the average speed over time. Feel free to experiment with the chart settings. The longer the data generator runs the more data points are generated. The following visualization is for an example of a  session that ran over 10 mins, and may not represent what you see on the screen.
 
 ![The chart view is displayed.](images/synapse-vehicleaverage-chart.png "VehicleAverages chart")
 
-## Exercise 3: Cleanup
+## Important: Cleanup
 
 Complete these steps to stop the data generator and free up resources you no longer need.
 
@@ -423,16 +370,14 @@ Complete these steps to stop the data generator and free up resources you no lon
 
 ### Task 3: Pause the dedicated SQL pool
 
-1. Open Synapse Studio (<https://web.azuresynapse.net/>).
-
-2. Select the **Manage** hub.
+1. In Synapse Studio, select the **Manage** hub.
 
     ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
 
-3. Select **SQL pools** in the left-hand menu **(1)**. Hover over the name of the dedicated SQL pool and select **Pause (2)**.
+2. Select **SQL pools** in the left-hand menu. Hover over the **SQLPool01** dedicated SQL pool and select **||**.
 
     ![The pause button is highlighted on the dedicated SQL pool.](images/pause-dedicated-sql-pool.png "Pause")
 
-4. When prompted, select **Pause**.
+3. When prompted, select **Pause**.
 
     ![The pause button is highlighted.](images/pause-dedicated-sql-pool-confirm.png "Pause")

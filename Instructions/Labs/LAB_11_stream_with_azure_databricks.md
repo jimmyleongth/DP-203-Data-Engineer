@@ -4,35 +4,17 @@ lab:
     module: 'Module 11'
 ---
 
-# Module 11 - Create a stream processing solution with Event Hubs and Azure Databricks
+# Lab 11 - Create a stream processing solution with Event Hubs and Azure Databricks
 
-In this module, you will learn how to ingest and process streaming data at scale with Event Hubs and Spark Structured Streaming in Azure Databricks. You will learn the key features and uses of Structured Streaming. You will implement sliding windows to aggregate over chunks of data and apply watermarking to remove stale data. Finally, you will connect to Event Hubs to read and write streams.
+In this lab, you will learn how to ingest and process streaming data at scale with Event Hubs and Spark Structured Streaming in Azure Databricks. You will learn the key features and uses of Structured Streaming. You will implement sliding windows to aggregate over chunks of data and apply watermarking to remove stale data. Finally, you will connect to Event Hubs to read and write streams.
 
-After completing this module, you will be able to:
+After completing this lab, you will be able to:
 
 - Know the key features and uses of Structured Streaming
 - Stream data from a file and write it out to a distributed file system
 - Use sliding windows to aggregate over chunks of data rather than all data
 - Apply watermarking to remove stale data
 - Connect to Event Hubs read and write streams
-
-## Lab details
-
-- [Module 11 - Create a stream processing solution with Event Hubs and Azure Databricks](#module-11---create-a-stream-processing-solution-with-event-hubs-and-azure-databricks)
-  - [Lab details](#lab-details)
-  - [Concepts](#concepts)
-  - [Event Hubs and Spark Structured Streaming](#event-hubs-and-spark-structured-streaming)
-  - [Streaming concepts](#streaming-concepts)
-  - [Lab setup and pre-requisites](#lab-setup-and-pre-requisites)
-    - [Exercise 0: Provision lab resources](#exercise-0-provision-lab-resources)
-      - [Task 1: Create an Event Hubs namespace](#task-1-create-an-event-hubs-namespace)
-      - [Task 2: Create an event hub](#task-2-create-an-event-hub)
-      - [Task 3: Copy the connection string primary key for the shared access policy](#task-3-copy-the-connection-string-primary-key-for-the-shared-access-policy)
-    - [Exercise 1: Complete the Structured Streaming Concepts notebook](#exercise-1-complete-the-structured-streaming-concepts-notebook)
-      - [Task 1: Clone the Databricks archive](#task-1-clone-the-databricks-archive)
-      - [Task 2: Complete the notebook](#task-2-complete-the-notebook)
-    - [Exercise 2: Complete the Working with Time Windows notebook](#exercise-2-complete-the-working-with-time-windows-notebook)
-    - [Exercise 3: Complete the Structured Streaming with Azure EventHubs notebook](#exercise-3-complete-the-structured-streaming-with-azure-eventhubs-notebook)
 
 ## Concepts
 
@@ -57,7 +39,7 @@ A streaming system consists of:
 
 ## Lab setup and pre-requisites
 
-- You have successfully completed the setup steps to create your lab environment.
+Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment.
 
 ### Exercise 0: Provision lab resources
 
@@ -165,3 +147,7 @@ Within the notebook, you will:
 - Connect to Event Hubs and write a stream to your event hub
 - Read a stream from your event hub
 - Define a schema for the JSON payload and parse the data to display it within a table
+
+## Shut down your cluster
+
+1. After you've completed the lab, in the left pane, select **Compute** and select your cluster. Then select **Terminate** to stop the cluster.

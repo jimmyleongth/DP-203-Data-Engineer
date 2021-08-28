@@ -1,85 +1,75 @@
 $InformationPreference = "Continue"
 
-$IsCloudLabs = Test-Path C:\LabFiles\AzureCreds.ps1;
-
 $Load30Billion = 0
 $LoadSqlPool = 0
 
-if($IsCloudLabs){
-        if(Get-Module -Name solliance-synapse-automation){
-                Remove-Module solliance-synapse-automation
-        }
-        Import-Module "..\solliance-synapse-automation"
-
-        . C:\LabFiles\AzureCreds.ps1
-
-        $userName = $AzureUserName                # READ FROM FILE
-        $password = $AzurePassword                # READ FROM FILE
-        $clientId = $TokenGeneratorClientId       # READ FROM FILE
-        #$global:sqlPassword = $AzureSQLPassword          # READ FROM FILE
-
-        $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-        $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $userName, $SecurePassword
-        
-        Connect-AzAccount -Credential $cred | Out-Null
-
-        $resourceGroupName = (Get-AzResourceGroup | Where-Object { $_.ResourceGroupName -like "*-L400*" }).ResourceGroupName
-
-        if ($resourceGroupName.Count -gt 1)
-        {
-                $resourceGroupName = $resourceGroupName[0];
-        }
-
-        $ropcBodyCore = "client_id=$($clientId)&username=$($userName)&password=$($password)&grant_type=password"
-        $global:ropcBodySynapse = "$($ropcBodyCore)&scope=https://dev.azuresynapse.net/.default"
-        $global:ropcBodyManagement = "$($ropcBodyCore)&scope=https://management.azure.com/.default"
-        $global:ropcBodySynapseSQL = "$($ropcBodyCore)&scope=https://sql.azuresynapse.net/.default"
-        $global:ropcBodyPowerBI = "$($ropcBodyCore)&scope=https://analysis.windows.net/powerbi/api/.default"
-
-        $artifactsPath = "..\..\"
-        $notebooksPath = "..\notebooks"
-        $templatesPath = "..\templates"
-        $datasetsPath = "..\datasets"
-        $dataflowsPath = "..\dataflows"
-        $pipelinesPath = "..\pipelines"
-        $sqlScriptsPath = "..\sql"
-} else {
-        if(Get-Module -Name solliance-synapse-automation){
-                Remove-Module solliance-synapse-automation
-        }
-        Import-Module "..\solliance-synapse-automation"
-
-        #Different approach to run automation in Cloud Shell
-        $subs = Get-AzSubscription | Select-Object -ExpandProperty Name
-        if($subs.GetType().IsArray -and $subs.length -gt 1){
-                $subOptions = [System.Collections.ArrayList]::new()
-                for($subIdx=0; $subIdx -lt $subs.length; $subIdx++){
-                        $opt = New-Object System.Management.Automation.Host.ChoiceDescription "$($subs[$subIdx])", "Selects the $($subs[$subIdx]) subscription."   
-                        $subOptions.Add($opt)
-                }
-                $selectedSubIdx = $host.ui.PromptForChoice('Enter the desired Azure Subscription for this lab','Copy and paste the name of the subscription to make your choice.', $subOptions.ToArray(),0)
-                $selectedSubName = $subs[$selectedSubIdx]
-                Write-Information "Selecting the $selectedSubName subscription"
-                Select-AzSubscription -SubscriptionName $selectedSubName
-
-                az account set --subscription $selectedSubName
-        }
-
-        $resourceGroupName = Read-Host "Enter the resource group name";
-        
-        $userName = ((az ad signed-in-user show) | ConvertFrom-JSON).UserPrincipalName
-        
-        #$global:sqlPassword = Read-Host -Prompt "Enter the SQL Administrator password you used in the deployment" -AsSecureString
-        #$global:sqlPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sqlPassword))
-
-        $artifactsPath = "..\..\"
-        $noteBooksPath = "..\notebooks"
-        $templatesPath = "..\templates"
-        $datasetsPath = "..\datasets"
-        $dataflowsPath = "..\dataflows"
-        $pipelinesPath = "..\pipelines"
-        $sqlScriptsPath = "..\sql"
+if(Get-Module -Name solliance-synapse-automation){
+        Remove-Module solliance-synapse-automation
 }
+Import-Module "..\solliance-synapse-automation"
+
+# User must sign in using az login
+Write-Host "Sign into Azure using your credentials.."
+az login
+
+# Now sign in again for PowerShell resource management and select subscription
+Write-Host "Now sign in again to allow this script to create resources..."
+Connect-AzAccount
+
+$subs = Get-AzSubscription | Select-Object
+if($subs.GetType().IsArray -and $subs.length -gt 1){
+        Write-Host "Multiple subscriptions detected - please select the one you want to use:"
+        for($i = 0; $i -lt $subs.length; $i++)
+        {
+                Write-Host "[$($i)]: $($subs[$i].Name) (ID = $($subs[$i].Id))"
+        }
+        $selectedIndex = -1
+        $selectedValidIndex = 0
+        while ($selectedValidIndex -ne 1)
+        {
+                $enteredValue = Read-Host("Enter 0 to $($subs.Length - 1)")
+                if (-not ([string]::IsNullOrEmpty($enteredValue)))
+                {
+                    if ([int]$enteredValue -in (0..$($subs.Length - 1)))
+                    {
+                        $selectedIndex = [int]$enteredValue
+                        $selectedValidIndex = 1
+                    }
+                    else
+                    {
+                        Write-Output "Please enter a valid subscription number."
+                    }
+                }
+                else
+                {
+                    Write-Output "Please enter a valid subscription number."
+                }
+        }
+        $selectedSub = $subs[$selectedIndex].Id
+        Select-AzSubscription -SubscriptionId $selectedSub
+        az account set --subscription $selectedSub
+}
+
+$userName = ((az ad signed-in-user show) | ConvertFrom-JSON).UserPrincipalName
+write-host "User Name: $userName"
+$userId = az ad signed-in-user show --query objectId -o tsv
+Write-Host "User ID: $userId"
+
+$resourceGroupName = Read-Host "Enter the name of the resource group containing your Synapse Analytics workspace";
+        
+$userName = ((az ad signed-in-user show) | ConvertFrom-JSON).UserPrincipalName
+        
+#$global:sqlPassword = Read-Host -Prompt "Enter the SQL Administrator password you used in the deployment" -AsSecureString
+#$global:sqlPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($sqlPassword))
+
+$artifactsPath = "..\..\"
+$noteBooksPath = "..\notebooks"
+$templatesPath = "..\templates"
+$datasetsPath = "..\datasets"
+$dataflowsPath = "..\dataflows"
+$pipelinesPath = "..\pipelines"
+$sqlScriptsPath = "..\sql"
+
 
 Write-Information "Using $resourceGroupName";
 
