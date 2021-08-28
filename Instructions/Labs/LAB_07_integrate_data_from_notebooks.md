@@ -378,8 +378,6 @@ Tailwind Traders wants to execute this notebook after the Mapping Data Flow runs
 
 3. Select the **User Profiles to Datalake** pipeline, then select **Add**.
 
-    ![The pipeline is selected.](images/add-to-pipeline-selection.png "Add to pipeline")
-
 4. Synapse Studio adds the Notebook activity to the pipeline. Rearrange the **Notebook activity** so it sits to the right of the **Data flow activity**. Select the **Data flow activity** and drag a **Success** activity pipeline connection **green box** to the **Notebook activity**.
 
     ![The green arrow is highlighted.](images/success-activity.png "Success activity")
