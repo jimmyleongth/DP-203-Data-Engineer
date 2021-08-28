@@ -154,7 +154,7 @@ In this step, you create a new integration pipeline to execute the data flow.
 
     ![Publish all is highlighted.](images/publish-all-1.png "Publish all")
 
-### Task 4: Trigger the pipeline
+### Task 3: Trigger the pipeline
 
 1. At the top of the pipeline, select **Add trigger**, then **Trigger now**.
 
@@ -172,7 +172,7 @@ In this step, you create a new integration pipeline to execute the data flow.
 
     ![The pipeline run succeeded.](images/pipeline-user-profiles-run-complete.png "Pipeline runs")
 
-## Exercise 3: Create Synapse Spark notebook to find top products
+## Exercise 2: Create Synapse Spark notebook to find top products
 
 Tailwind Traders uses a Mapping Data flow in Synapse Analytics to process, join, and import user profile data. Now they want to find the top 5 products for each user, based on which ones are both preferred and top, and have the most purchases in the past 12 months. Then, they want to calculate the top 5 products overall.
 

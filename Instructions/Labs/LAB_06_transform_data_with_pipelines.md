@@ -965,13 +965,8 @@ You have decided to show Tailwind Traders how to manually trigger, monitor, then
 Complete these steps to free up resources you no longer need.
 
 1. In Synapse Studio, select the **Manage** hub.
-
-    ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
-
 2. Select **SQL pools** in the left-hand menu. Hover over the **SQLPool01** dedicated SQL pool and select **||**.
 
     ![The pause button is highlighted on the dedicated SQL pool.](images/pause-dedicated-sql-pool.png "Pause")
 
 3. When prompted, select **Pause**.
-
-    ![The pause button is highlighted.](images/pause-dedicated-sql-pool-confirm.png "Pause")

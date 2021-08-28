@@ -192,35 +192,22 @@ Transparent Data Encryption (TDE) is a feature of SQL Server that provides encry
 
 It is important to identify data columns of that hold sensitive information. Types of sensitive could be social security numbers, email addresses, credit card numbers, financial totals, and more. Azure Synapse Analytics allows you define permissions that prevent users or roles select privileges on specific columns.
 
-1. In **Azure Synapse Studio**, select **Develop** from the left menu.
-
-   ![In Azure Synapse Studio, the Develop item is selected from the left menu.](images/develop-hub.png)
-
-2. In the **Develop** pane, expand the **SQL scripts** section, and select **Lab 05 - Exercise 3 - Column Level Security**.
-
-   ![In Synapse Studio the develop menu is displayed with SQL Scripts section expanded, Lab 05 - Exercise 3 - Column Level Security is selected from the context menu.](images/lab5_synapsecolumnlevel.png)
-
-3. In the toolbar menu, connect to the database on which you want to execute the query, **SQLPool01**.
-
-    ![The Synapse Studio query toolbar is shown with the Connect to dropdown list field highlighted.](images/lab5_synapsestudioquerytoolbar.png)
-
-4. In the query window, **run each step individually** by highlighting the statement(s) in the step in the query window, and selecting the **Run** button from the toolbar (or press **F5**).
-
-   ![The Synapse Studio toolbar is displayed with the Run button selected.](images/lab5_synapsestudioqueryruntoolbarmenu.png)
-
-5. Close the script tab. If prompted select **Discard all changes**.
+1. In **Azure Synapse Studio**, in the **Develop** hub, expand the **SQL scripts** section, and select **Column Level Security**.
+2. In the toolbar, connect to the **SQLPool01** database.
+3. In the query window, **run each step individually** by highlighting the statement(s) in the step in the query window, and selecting the **Run** button from the toolbar (or press **F5**).
+4. Close the script tab. If prompted select **Discard all changes**.
 
 ### Task 2 - Row level security
 
-1. In the **Develop** pane, in the **SQL scripts** section, select **Lab05 - Exercise 3 - Row Level Security**.
-2. In the toolbar menu, connect to the database on which you want to execute the query, **SQLPool01**.
+1. In the **Develop** hub, in the **SQL scripts** section, select **Row Level Security**.
+2. In the toolbar, connect to the **SQLPool01** database.
 3. In the query window, **run each step individually** by highlighting the statement(s) for the step in the query window, and selecting the **Run** button from the toolbar (or press **F5**).
 4. Close the script tab. If prompted select **Discard all changes**.
 
 ### Task 3 - Dynamic data masking
 
-1. In the **Develop** pane, in the **SQL scripts** section, select **Lab05 - Exercise 3 - Dynamic Data Masking**.
-2. In the toolbar menu, connect to the database on which you want to execute the query, **SQLPool01**.
+1. In the **Develop** hub, in the **SQL scripts** section, select **Dynamic Data Masking**.
+2. In the toolbar, connect to the **SQLPool01** database.
 3. In the query window, **run each step individually** by highlighting the statement(s) for the step in the query window, and selecting the **Run** button from the toolbar (or press **F5**).
 4. Close the script tab. If prompted select **Discard all changes**.
 
@@ -229,16 +216,11 @@ It is important to identify data columns of that hold sensitive information. Typ
 Complete these steps to free up resources you no longer need.
 
 1. In Synapse Studio, select the **Manage** hub.
-
-    ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
-
 2. Select **SQL pools** in the left-hand menu. Hover over the **SQLPool01** dedicated SQL pool and select **||**.
 
     ![The pause button is highlighted on the dedicated SQL pool.](images/pause-dedicated-sql-pool.png "Pause")
 
 3. When prompted, select **Pause**.
-
-    ![The pause button is highlighted.](images/pause-dedicated-sql-pool-confirm.png "Pause")
 
 ## Reference
 

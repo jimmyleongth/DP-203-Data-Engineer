@@ -338,10 +338,10 @@ Write-Information "Create SQL scripts"
 Write-Host "Creating SQL scripts..."
 
 $sqlScripts = [ordered]@{
-        "Lab 05 - Exercise 3 - Column Level Security" = "Lab 05 - Exercise 3 - Column Level Security"
-        "Lab 05 - Exercise 3 - Dynamic Data Masking" = "Lab 05 - Exercise 3 - Dynamic Data Masking"
-        "Lab 05 - Exercise 3 - Row Level Security" = "Lab 05 - Exercise 3 - Row Level Security"
-        "Activity 03 - Data Warehouse Optimization" = "Activity 03 - Data Warehouse Optimization"
+        "Column Level Security" = "Column Level Security"
+        "Dynamic Data Masking" = "Dynamic Data Masking"
+        "Row Level Security" = "Row Level Security"
+        "Data Warehouse Optimization" = "Data Warehouse Optimization"
 }
 
 foreach ($sqlScriptName in $sqlScripts.Keys) {
