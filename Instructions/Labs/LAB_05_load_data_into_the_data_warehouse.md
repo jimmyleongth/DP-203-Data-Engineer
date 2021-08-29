@@ -436,15 +436,17 @@ To run loads with appropriate compute resources, create loading users designated
 
     ![The new pipeline context menu item is selected.](images/new-pipeline.png "New pipeline")
 
-3. In the **Properties** pane for the new pipeline, set the **Name** to **`Copy December Sales`**.
+3. In the **Properties** pane for the new pipeline, set the **Name** of the pipeline to **`Copy December Sales`**.
 
     ![The Name property is highlighted.](images/pipeline-copy-sales-name.png "Properties")
+
+    > **Tip**: After setting the name, hide the **Properties** pane.
 
 4. Expand **Move & transform** within the Activities list, then drag the **Copy data** activity onto the pipeline canvas.
 
     ![Copy data is dragged to the canvas](images/pipeline-copy-sales-drag-copy-data.png "Pipeline canvas")
 
-5. Select the **Copy data** activity on the canvas, select the **General** tab, and set the **Name** to **`Copy Sales`**.
+5. Select the **Copy data** activity on the canvas. Then, beneath the canvas, on the **General** tab, set the **Name** of the activity to **`Copy Sales`**.
 
     ![The name is highlighted in the general tab.](images/pipeline-copy-sales-general.png "General tab")
 
@@ -484,7 +486,7 @@ To run loads with appropriate compute resources, create loading users designated
     1. Set the **Name** to **`asal400_saleheap_asa`**
     2. Select the **sqlpool01_import01** linked service.
     3. Select the **wwi_perf.Sale_Heap** table
-    4. Select **OK (4)**.
+    4. Select **OK**.
 
     ![The properties are displayed.](images/pipeline-copy-sales-sink-dataset.png "Dataset properties")
 
