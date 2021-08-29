@@ -302,7 +302,7 @@ Issues include invalid characters in the revenue currency data, and misaligned c
 
     ![The script link is highlighted above the canvas.](images/data-flow-script.png "Script")
 
-7. Replace the script with the following to provide the column mappings (`output`), then select **OK**:
+7. Replace the script with the following to provide the column mappings, then select **OK**:
 
     ```json
     source(output(
