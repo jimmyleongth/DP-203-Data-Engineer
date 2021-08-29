@@ -149,6 +149,8 @@ In this step, you create a new integration pipeline to execute the data flow.
 
 5. On the **Settings** tab, select the **user_profiles_to_datalake** data flow, ensure **AutoResolveIntegrationRuntime** is selected. Choose the **Basic (General purpose)** compute type and set the core count to **4 (+ 4 Driver cores)**.
 
+    ![The mapping data flow activity settings are configured as described.](images/pipeline-user-profiles-datalake-data-flow-settings.png "Mapping data flow activity settings")
+
 6. Select **Publish all** then **Publish** to save your pipeline.
 
     ![Publish all is highlighted.](images/publish-all-1.png "Publish all")
