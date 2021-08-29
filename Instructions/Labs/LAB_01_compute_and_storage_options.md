@@ -40,7 +40,7 @@ In this exercise, you will use an Azure Databricks workspace and perform Structu
 5. Enter a name for your cluster, such as `Test Cluster`.
 6. Select a **Single Node** cluster mode.
 7. Select the **Databricks RuntimeVersion**. We recommend the latest runtime and **Scala 2.12**.
-8. Set the **Terminate after** timeout to 60 minutes and select the default node type.
+8. Set the **Terminate after** timeout to 30 minutes and select the default node type.
 9. Select **Create Cluster**.
 10. Wait for the cluster to start. Please note you will have to wait 5 - 7 minutes for the cluster to start up before moving onto the next task.
 
