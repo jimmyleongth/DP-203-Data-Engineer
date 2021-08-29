@@ -27,7 +27,6 @@ This lab uses the dedicated SQL pool you created in the previous lab. You should
     ![The resume button is highlighted on the dedicated SQL pool.](images/resume-dedicated-sql-pool.png "Resume")
 
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
-5. Continue to the next exercise while the dedicated SQL pool resumes.
 
 ## Exercise 1 - Import data with PolyBase and COPY using T-SQL
 
@@ -371,55 +370,61 @@ Be sure that you allocate enough memory to the pipeline session. To do this, inc
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.
 
-1. In the SQL script query window you worked with in the previous exercise, replace the script with the following to create a workload group, **BigDataLoad**, that uses workload isolation by reserving a minimum of 50% resources with a cap of 100%:
+1. In the SQL script query window you worked with in the previous exercise, replace the script with the following to create:
+    - A workload group, **BigDataLoad**, that uses workload isolation by reserving a minimum of 50% resources with a cap of 100%
+    - A new workload classifier, **HeavyLoader** that assigns the **asa.sql.import01** user to the **BigDataLoad** workload group.
+    
+    At the end, we select from **sys.workload_management_workload_classifiers** to view all classifiers, including the one we just created:
 
     ```sql
-    IF NOT EXISTS (SELECT * FROM sys.workload_management_workload_classifiers WHERE group_name = 'BigDataLoad')
+    -- Drop objects if they exist
+    IF EXISTS (SELECT * FROM sys.workload_management_workload_classifiers WHERE [name] = 'HeavyLoader')
     BEGIN
-        CREATE WORKLOAD GROUP BigDataLoad WITH  
-        (
-            MIN_PERCENTAGE_RESOURCE = 50 -- integer value
-            ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 25 --  (guaranteed a minimum of 4 concurrency)
-            ,CAP_PERCENTAGE_RESOURCE = 100
-        );
-    END
-    ```
-
-2. Run the script.
-
-3. In the query window, replace the script with the following to create a new workload classifier, **HeavyLoader** that assigns the **asa.sql.import01** user to the **BigDataLoad** workload group. At the end, we select from **sys.workload_management_workload_classifiers** to view all classifiers, including the one we just created:
-
-    ```sql
-    IF NOT EXISTS (SELECT * FROM sys.workload_management_workload_classifiers WHERE [name] = 'HeavyLoader')
+        DROP WORKLOAD CLASSIFIER HeavyLoader
+    END;
+    
+    IF EXISTS (SELECT * FROM sys.workload_management_workload_groups WHERE name = 'BigDataLoad')
     BEGIN
-        CREATE WORKLOAD Classifier HeavyLoader WITH
-        (
-            Workload_Group ='BigDataLoad',
-            MemberName='asa.sql.import01',
-            IMPORTANCE = HIGH
-        );
-    END
-
+        DROP WORKLOAD GROUP BigDataLoad
+    END;
+    
+    --Create workload group
+    CREATE WORKLOAD GROUP BigDataLoad WITH
+      (
+          MIN_PERCENTAGE_RESOURCE = 50, -- integer value
+          REQUEST_MIN_RESOURCE_GRANT_PERCENT = 25, --  (guaranteed min 4 concurrency)
+          CAP_PERCENTAGE_RESOURCE = 100
+      );
+    
+    -- Create workload classifier
+    CREATE WORKLOAD Classifier HeavyLoader WITH
+    (
+        Workload_Group ='BigDataLoad',
+        MemberName='asa.sql.import01',
+        IMPORTANCE = HIGH
+    );
+    
+    -- View classifiers
     SELECT * FROM sys.workload_management_workload_classifiers
     ```
 
-4. Run the script, and if necessary, switch the results to **Table** view. You should see the new **HeavyLoader** classifier in the query results:
+2. Run the script, and if necessary, switch the results to **Table** view. You should see the new **HeavyLoader** classifier in the query results:
 
     ![The new workload classifier is highlighted.](images/workload-classifiers-query-results.png "Workload Classifiers query results")
 
-5. Navigate to the **Manage** hub.
+3. Navigate to the **Manage** hub.
 
     ![The Manage menu item is highlighted.](images/manage-hub.png "Manage hub")
 
-6. Select **Linked services** in the left-hand menu, then select the **sqlpool01_import01** linked service (if this is not listed, use the **&#8635;** button at the top left to refresh the view).
+4. Select **Linked services** in the left-hand menu, then select the **sqlpool01_import01** linked service (if this is not listed, use the **&#8635;** button at the top left to refresh the view).
 
     ![Linked services is displayed.](images/linked-services.png "Linked services")
 
-7. Notice that the user name for the dedicated SQL pool connection is the **asa.sql.import01** user you added to the **HeavyLoader** classifier. We will use this linked service in our new pipeline to reserve resources for the data load activity.
+5. Notice that the user name for the dedicated SQL pool connection is the **asa.sql.import01** user you added to the **HeavyLoader** classifier. We will use this linked service in our new pipeline to reserve resources for the data load activity.
 
     ![The user name is highlighted.](images/sqlpool01-import01-linked-service.png "Linked service")
 
-8. Select **Cancel** to close the dialog, and select **Discard changes** if prompted.
+6. Select **Cancel** to close the dialog, and select **Discard changes** if prompted.
 
 ### Task 2: Create pipeline with copy activity
 
