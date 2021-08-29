@@ -33,11 +33,12 @@ Before starting this lab, ensure you have successfully completed the setup steps
 
     ![The new button is highlighted.](images/new-dedicated-sql-pool.png "New dedicated SQL pool")
 
-4. In the **Create dedicated SQL pool** page, enter **`SQLPool01`** (You <u>must</u> use this name exactly as displayed here) for the pool name, then set the performance level to **DW100c** (move the slider all the way to the left). Click **Review + create**. Select **Create** on the validation step.
+4. In the **Create dedicated SQL pool** page, enter **`SQLPool01`** (You <u>must</u> use this name exactly as displayed here) for the pool name, then set the performance level to **DW100c** (move the slider all the way to the left).
 
     ![Settings for a DW100c pool named SQLPool01.](images/new-sql-pool.png "New DW100c SQL Pool")
 
-5. Wait until the dedicated SQL pool is created.
+5. Click **Review + create**. Then select **Create** on the validation step.
+6. Wait until the dedicated SQL pool is created.
 
 ### Task 2: Execute PowerShell script
 
