@@ -74,7 +74,7 @@ Before starting this lab, ensure you have successfully completed the setup steps
 
 > **NOTE** This script will take about 2-3 minutes to complete.
 > 
-> If it seems as though the script hangs while creating linked services for the SQLPool01 dedicated SQL pool (there are 3), hit `Enter` on the keyboard. This tends to refresh the PowerShell script and allows it to continue to the end.
+> If it seems as though the script hangs while creating linked services for the SQLPool01 dedicated SQL pool (there are 3), press **Enter**. This tends to refresh the PowerShell script and allows it to continue to the end.
 >
 > ### Potential errors that you can ignore
 >
@@ -98,7 +98,7 @@ The engineers at Tailspin Traders have run into issues ingesting some of their s
 
 Azure Synapse Studio provides numerous ways to explore data, from a simple preview interface to more complicated programmatic options using Synapse Spark notebooks. In this exercise, you will learn how to use these features to explore, identify, and fix problematic files. You will be exploring CSV files stored in the **wwi-02/sale-poc** folder of the data lake and learning about how to identify and fix issues.
 
-1. In Azure Synapse Studio (<https://web.azuresynapse.net/>), navigate to the **Data** hub.
+1. In Azure Synapse Studio, navigate to the **Data** hub.
 
     ![The data hub is highlighted.](images/data-hub.png "Data hub")
 
@@ -112,7 +112,7 @@ Azure Synapse Studio provides numerous ways to explore data, from a simple previ
 
     ![On the Linked tab, ADLS Gen2 is expanded and the primary data lake account is expanded and highlighted.](images/data-hub-adls-primary.png "ADLS Gen2 Primary Storage Account")
 
-4. In the list of containers within the primary data lake storage account, select the `wwi-02` container.
+4. In the list of containers within the primary data lake storage account, select the **wwi-02** container.
 
     ![The wwi-02 container is selected and highlighted under the primary data lake storage account.](images/data-hub-adls-primary-wwi-02-container.png "wwi-02 container")
 
@@ -126,7 +126,7 @@ Azure Synapse Studio provides numerous ways to explore data, from a simple previ
 
     ![In the context menu for the sale-20170501.csv file, Preview is highlighted.](images/sale-20170501-csv-context-menu-preview.png "File context menu")
 
-8. The preview* functionality in Synapse Studio provides an quick and code-free way to examine the contents of a file. This is an effective way of getting a basic understanding of the features (columns) and types of data stored within them for an individual file.
+8. The preview functionality in Synapse Studio provides an quick and code-free way to examine the contents of a file. This is an effective way of getting a basic understanding of the features (columns) and types of data stored within them for an individual file.
 
     ![The preview dialog for the sale-20170501.csv file is displayed.](images/sale-20170501-csv-preview.png "CSV file preview")
 
@@ -142,7 +142,7 @@ Azure Synapse Studio provides numerous ways to explore data, from a simple previ
 
     ![The preview dialog for the sale-20170502.csv file is displayed.](images/sale-20170502-csv-preview.png "CSV File preview")
 
-12. It appears this file does not contain column headers, so set the **With column header** option to **off** and inspect the results (which may take a while to appear).
+12. It appears this file does not contain column headers, so set the **With column header** option to **off** (which may take a while to change) and inspect the results.
 
     ![The preview dialog for the sale-20170502.csv file is displayed, with the With column header option set to off.](images/sale-20170502-csv-preview-with-column-header-off.png "CSV File preview")
 
@@ -170,7 +170,9 @@ The preview functionality in Synapse Studio enables quick exploration of files, 
 
     ![The T-SQL script generated for reading the top 100 rows of the file is displayed.](images/sale-20170501-csv-sql-select-top-100.png "T-SQL script to preview CSV file")
 
-    > T-SQL queries against files stored in the data lake leverage the OPENROWSET function, which can be referenced in the FROM clause of a query as if it were a table. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset. To learn more, you can review the to [OPENROWSET documentation](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset).
+    > **Tip**: Hide the script's **Properties** pane to make it easier to see the script.
+
+    T-SQL queries against files stored in the data lake leverage the OPENROWSET function, which can be referenced in the FROM clause of a query as if it were a table. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset. To learn more, you can review the to [OPENROWSET documentation](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset).
 
 3. Now, select **Run** on the toolbar to execute the query.
 
@@ -266,7 +268,7 @@ You recommend using Synapse Notebooks, which are integrated in the Azure Synapse
 
 ### Task 1: Ingest and explore Parquet files from a data lake with Apache Spark for Azure Synapse
 
-1. In Azure Synapse Studio (<https://web.azuresynapse.net/>), select the **Data** hub.
+1. In Azure Synapse Studio, select the **Data** hub.
 2. On the **Linked** tab, in the **wwi-02** container, browse to the *sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231* folder. Then right-click the Parquet file, select **New notebook**, and then select **Load to DataFrame**.
 
     ![The Parquet file is displayed as described.](images/2019-sale-parquet-new-notebook.png "New notebook")
@@ -417,7 +419,7 @@ In addition to the sales data, Tailwind Traders has customer profile data from a
     SELECT * FROM user_profiles LIMIT 10
     ```
 
-    Notice that the output shows nested data for `topProductPurchases`, which includes an array of `productId` and `itemsPurchasedLast12Months` values. You can expand the fields by clicking the right triangle in each row.
+    Notice that the output shows nested data for **topProductPurchases**, which includes an array of **productId** and **itemsPurchasedLast12Months** values. You can expand the fields by clicking the right triangle in each row.
 
     ![JSON nested output.](images/spark-json-output-nested.png "JSON output")
 
@@ -596,7 +598,7 @@ The Apache Spark pool to Synapse SQL connector is a data source implementation f
 
 ### Task 1: Update notebook
 
-1. We have been using Python code in these cells up to this point. If we want to use the Apache Spark pool to Synapse SQL connector (**sqlanalytics**), one option is to create a temporary view of the data within the dataframe. Run the following in a new code cell to create a view named **top_purchases**:
+1. We have been using Python code in these cells up to this point. If we want to use the Apache Spark pool to Synapse SQL connector, one option is to create a temporary view of the data within the dataframe. Run the following in a new code cell to create a view named **top_purchases**:
 
     ```python
     # Create a temporary view for top purchases so we can load from Scala
@@ -611,7 +613,7 @@ The Apache Spark pool to Synapse SQL connector is a data source implementation f
     %%spark
     // Make sure the name of the dedcated SQL pool (SQLPool01 below) matches the name of your SQL pool.
     val df = spark.sqlContext.sql("select * from top_purchases")
-    df.write.sqlanalytics("SQLPool01.wwi.TopPurchases", Constants.INTERNAL)
+    df.write.synapsesql("SQLPool01.wwi.TopPurchases", Constants.INTERNAL)
     ```
 
     > **Note**: The cell may take over a minute to execute. If you have run this command before, you will receive an error stating that "There is already and object named.." because the table already exists.
@@ -642,7 +644,7 @@ The Apache Spark pool to Synapse SQL connector is a data source implementation f
     ```java
     %%spark
     // Make sure the name of the SQL pool (SQLPool01 below) matches the name of your SQL pool.
-    val df2 = spark.read.sqlanalytics("SQLPool01.wwi.TopPurchases")
+    val df2 = spark.read.synapsesql("SQLPool01.wwi.TopPurchases")
     df2.createTempView("top_purchases_sql")
 
     df2.head(10)
@@ -650,7 +652,7 @@ The Apache Spark pool to Synapse SQL connector is a data source implementation f
 
     ![The cell and its output are displayed as described.](images/read-sql-pool.png "Read SQL pool")
 
-    The cell's language is set to Scala by using the **%%spark** magic at the top of the cell. We declared a new variable named **df2** as a new DataFrame created by the **spark.read.sqlanalytics** method, which reads from the **TopPurchases** table in the SQL database. Then we populated a new temporary view named **top_purchases_sql**. Finally, we showed the first 10 records with the **df2.head(10))** line. The cell output displays the dataframe values.
+    The cell's language is set to Scala by using the **%%spark** magic at the top of the cell. We declared a new variable named **df2** as a new DataFrame created by the **spark.read.synapsesql** method, which reads from the **TopPurchases** table in the SQL database. Then we populated a new temporary view named **top_purchases_sql**. Finally, we showed the first 10 records with the **df2.head(10))** line. The cell output displays the dataframe values.
 
 7. Run the following code in a new code cell to create a new dataframe in Python from the **top_purchases_sql** temporary view, then display the first 10 results:
 
