@@ -14,6 +14,12 @@ After completing this lab, you will be able to:
 - Organize the data lake into levels of file transformation
 - Index data lake storage for query and workload acceleration
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Delta Lake architecture](#Exercise-1---Delta-Lake-architecture)
+- [Exercise 2 - Working with Apache Spark in Synapse Analytics](#Exercise-2---Working-with-Apache-Spark-in-Synapse-Analytics)
+
 ## Lab setup and pre-requisites
 
 Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment.

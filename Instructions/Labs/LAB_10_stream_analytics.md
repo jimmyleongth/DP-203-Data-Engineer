@@ -15,6 +15,16 @@ After completing this lab, you will be able to:
 - Scale the Azure Stream Analytics job to increase throughput through partitioning
 - Repartition the stream input to optimize parallelization
 
+## Lab details
+
+- [Technology overview](#Technology-overview)
+- [Scenario overview](#Scenario-overview)
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Configure services](#Exercise-1---Configure-services)
+- [Important: Pause your SQL pool]
+- [Exercise 2 - Generate and aggregate data](#Exercise-2---Generate-and-aggregate-data)
+- [Important: Cleanup](#Important:-Cleanup)
+
 ## Technology overview
 
 ### Azure Stream Analytics
@@ -46,22 +56,15 @@ Before starting this lab, you must complete at least the setup steps in **Lab 4:
 This lab uses the dedicated SQL pool you created in the previous lab. You should have paused the SQL pool at the end of the previous lab, so resume it by following these instructions:
 
 1. Open Azure Synapse Studio (<https://web.azuresynapse.net/>).
-
 2. Select the **Manage** hub.
-
-    ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
-
 3. Select **SQL pools** in the left-hand menu. If the **SQLPool01** dedicated SQL pool is paused, hover over its name and select **&#9655;**.
 
     ![The resume button is highlighted on the dedicated SQL pool.](images/resume-dedicated-sql-pool.png "Resume")
 
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
-
-    ![The resume button is highlighted.](images/resume-dedicated-sql-pool-confirm.png "Resume")
-
 5. Continue to the next exercise while the dedicated SQL pool resumes.
 
-## Exercise 1: Configure services
+## Exercise 1 - Configure services
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. We are using it to temporarily store vehicle telemetry data that is processed and ready to be sent to the real-time dashboard. As data flows into Event Hubs, Azure Stream Analytics will query the data, applying aggregates and tagging anomalies, then send it to Azure Synapse Analytics and Power BI.
 
@@ -276,7 +279,7 @@ In this task, you will configure Stream Analytics to use the event hub you creat
 
     ![The Now and Start buttons are highlighted within the Start job blade.](images/stream-analytics-start-job.png 'Start job')
 
-## Exercise 2: Generate and aggregate data
+## Exercise 2 - Generate and aggregate data
 
 ### Task 1: Run data generator
 

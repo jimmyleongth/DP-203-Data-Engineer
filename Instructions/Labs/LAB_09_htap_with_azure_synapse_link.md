@@ -14,6 +14,13 @@ After completing this lab, you will be able to:
 - Query Azure Cosmos DB with Apache Spark for Synapse Analytics
 - Query Azure Cosmos DB with serverless SQL pool for Azure Synapse Analytics
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Configuring Azure Synapse Link with Azure Cosmos DB](#Exercise-1---Configuring-Azure-Synapse-Link-with-Azure-Cosmos-DB)
+- [Exercise 2 - Querying Azure Cosmos DB with Apache Spark for Synapse Analytics](#Exercise-2---Querying-Azure-Cosmos-DB-with-Apache-Spark-for-Synapse-Analytics)
+- [Exercise 3 - Querying Azure Cosmos DB with serverless SQL pool for Azure Synapse Analytics](#Exercise-3---Querying-Azure-Cosmos-DB-with-serverless-SQL-pool-for-Azure-Synapse-Analytics)
+
 ## Lab setup and pre-requisites
 
 Before starting this lab, you should complete **Lab 6: *Transform data with Azure Data Factory or Azure Synapse Pipelines***.
@@ -32,7 +39,7 @@ Before starting this lab, you should complete **Lab 6: *Transform data with Azur
 >       - **File path**: wwi-02/online-user-profiles-02
 >       - **Import schema**: From connection/store
 
-## Exercise 1: Configuring Azure Synapse Link with Azure Cosmos DB
+## Exercise 1 - Configuring Azure Synapse Link with Azure Cosmos DB
 
 Tailwind Traders uses Azure Cosmos DB to store user profile data from their eCommerce site. The NoSQL document store provided by the Azure Cosmos DB SQL API provides the familiarity of managing their data using SQL syntax, while being able to read and write the files at a massive, global scale.
 
@@ -162,7 +169,7 @@ Now that we have the new Azure Cosmos DB container with the analytical store ena
 
     > This may take **around 4 minutes** to complete.
 
-## Exercise 2: Querying Azure Cosmos DB with Apache Spark for Synapse Analytics
+## Exercise 2 - Querying Azure Cosmos DB with Apache Spark for Synapse Analytics
 
 Tailwind Traders wants to use Apache Spark to run analytical queries against the new Azure Cosmos DB container. In this segment, we will use built-in gestures in Synapse Studio to quickly create a Synapse Notebook that loads data from the analytical store of the HTAP-enabled container, without impacting the transactional store.
 
@@ -279,7 +286,7 @@ Tailwind Traders is trying to solve how they can use the list of preferred produ
 
 12. At the top right of the notebook, use the **Stop Session** button to stop the notebook session. Then close the notebook, discarding the changes.
 
-## Exercise 3: Querying Azure Cosmos DB with serverless SQL pool for Azure Synapse Analytics
+## Exercise 3 - Querying Azure Cosmos DB with serverless SQL pool for Azure Synapse Analytics
 
 Tailwind Traders wants to explore the Azure Cosmos DB analytical store with T-SQL. Ideally, they can create views that can then be used for joins with other analytical store containers, files from the data lake, or accessed by external tools, like Power BI.
 

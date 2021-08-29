@@ -20,6 +20,14 @@ This lab will guide you through several  security-related steps that cover an en
 
 2. Introspect the data that is contained within the SQL Pools in the context of potential sensitive/confidential data disclosure. Identify the columns representing sensitive data, then secure them by adding column-level security. Determine at the table level what data should be hidden from specific groups of users then define security predicates to apply row level security (filters) on the table. If desired, you also have the option of applying Dynamic Data Masking to mask sensitive data returned in queries on a column by column basis.
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Securing Azure Synapse Analytics supporting infrastructure](#Exercise-1---Securing-Azure-Synapse-Analytics-supporting-infrastructure)
+- [Exercise 2 - Securing the Azure Synapse Analytics workspace and managed services](#Exercise-2---Securing-the-Azure-Synapse-Analytics-workspace-and-managed-services)
+- [Exercise 3 - Securing Azure Synapse Analytics workspace data](#Exercise-3---Securing-Azure-Synapse-Analytics-workspace-data)
+- [Important: Pause your SQL pool](#Important:-Pause-your-SQL-pool)
+
 ## Lab setup and pre-requisites
 
 Before starting this lab, you must complete at least the setup steps in **Lab 4: *Explore, transform, and load data into the Data Warehouse using Apache Spark***.
@@ -27,19 +35,12 @@ Before starting this lab, you must complete at least the setup steps in **Lab 4:
 This lab uses the dedicated SQL pool you created in the previous lab. You should have paused the SQL pool at the end of the previous lab, so resume it by following these instructions:
 
 1. Open Azure Synapse Studio (<https://web.azuresynapse.net/>).
-
 2. Select the **Manage** hub.
-
-    ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
-
 3. Select **SQL pools** in the left-hand menu. If the **SQLPool01** dedicated SQL pool is paused, hover over its name and select **&#9655;**.
 
     ![The resume button is highlighted on the dedicated SQL pool.](images/resume-dedicated-sql-pool.png "Resume")
 
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
-
-    ![The resume button is highlighted.](images/resume-dedicated-sql-pool-confirm.png "Resume")
-
 5. Continue to the next exercise while the dedicated SQL pool resumes.
 
 ## Exercise 1 - Securing Azure Synapse Analytics supporting infrastructure

@@ -4,7 +4,6 @@ lab:
     module: 'Module 6'
 ---
 
-
 # Lab 6 - Transform data with Azure Data Factory or Azure Synapse Pipelines
 
 This lab teaches you how to build data integration pipelines to ingest from multiple data sources, transform data using mapping data flows and notebooks, and perform data movement into one or more data sinks.
@@ -15,29 +14,30 @@ After completing this lab, you will be able to:
 - Create data pipeline to import poorly formatted CSV files
 - Create Mapping Data Flows
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Code-free transformation at scale with Azure Synapse Pipelines](#Exercise-1---Code-free-transformation-at-scale-with-Azure-Synapse-Pipelines)
+- [Exercise 2 - Create Mapping Data Flow for top product purchases](#Exercise-2---Create-Mapping-Data-Flow-for-top-product-purchases)
+- [Exercise 3 - Orchestrate data movement and transformation in Azure Synapse Pipelines](#Exercise-3---Orchestrate-data-movement-and-transformation-in-Azure-Synapse-Pipelines)
+- [Important: Pause your SQL pool](#Important:-Pause-your-SQL-pool)
+
 ## Lab setup and pre-requisites
 
-- Before starting this lab, you must complete **Lab 5: *Ingest and load data into the Data Warehouse***.
+Before starting this lab, you must complete **Lab 5: *Ingest and load data into the Data Warehouse***.
 
 This lab uses the dedicated SQL pool you created in the previous lab. You should have paused the SQL pool at the end of the previous lab, so resume it by following these instructions:
 
 1. Open Synapse Studio (<https://web.azuresynapse.net/>).
-
 2. Select the **Manage** hub.
-
-    ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
-
 3. Select **SQL pools** in the left-hand menu. If the **SQLPool01** dedicated SQL pool is paused, hover over its name and select **&#9655;**.
 
     ![The resume button is highlighted on the dedicated SQL pool.](images/resume-dedicated-sql-pool.png "Resume")
 
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
-
-    ![The resume button is highlighted.](images/resume-dedicated-sql-pool-confirm.png "Resume")
-
 5. Continue to the next exercise while the dedicated SQL pool resumes.
 
-## Exercise 1: Code-free transformation at scale with Azure Synapse Pipelines
+## Exercise 1 - Code-free transformation at scale with Azure Synapse Pipelines
 
 Tailwind Traders would like code-free options for data engineering tasks. Their motivation is driven by the desire to allow junior-level data engineers who understand the data but do not have a lot of development experience build and maintain data transformation operations. The other driver for this requirement is to reduce fragility caused by complex code with reliance on libraries pinned to specific versions, remove code testing requirements, and improve ease of long-term maintenance.
 
@@ -507,7 +507,7 @@ Now that the pipeline run is complete, let's take a look at the SQL table to ver
 
     ![The new query and chart view are displayed.](images/campaign-analytics-query-results-chart.png "Chart view")
 
-## Exercise 2: Create Mapping Data Flow for top product purchases
+## Exercise 2 - Create Mapping Data Flow for top product purchases
 
 Tailwind Traders needs to combine top product purchases imported as JSON files from their eCommerce system with user preferred products from profile data stored as JSON documents in Azure Cosmos DB. They want to store the combined data in a dedicated SQL pool as well as their data lake for further analysis and reporting.
 
@@ -871,7 +871,7 @@ To do this, you will build a mapping data flow that performs the following tasks
 
     ![Publish all is highlighted.](images/publish-all-1.png "Publish all")
 
-## Exercise 3: Orchestrate data movement and transformation in Azure Synapse Pipelines
+## Exercise 3 - Orchestrate data movement and transformation in Azure Synapse Pipelines
 
 Tailwind Traders is familiar with Azure Data Factory (ADF) pipelines and wants to know if Azure Synapse Analytics can either integrate with ADF or has a similar capability. They want to orchestrate data ingest, transformation, and load activities across their entire data catalog, both internal and external to their data warehouse.
 

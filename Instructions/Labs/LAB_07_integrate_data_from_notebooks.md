@@ -4,7 +4,6 @@ lab:
     module: 'Module 7'
 ---
 
-
 # Lab 7 - Integrate data from notebooks with Azure Data Factory or Azure Synapse Pipelines
 
 You will learn how to create linked services, and orchestrate data movement and transformation in Azure Synapse Pipelines.
@@ -12,6 +11,12 @@ You will learn how to create linked services, and orchestrate data movement and 
 After completing this lab, you will be able to:
 
 - Orchestrate data movement and transformation in Azure Synapse Pipelines
+
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Create mapping data flow and pipeline](#Exercise-1---Create-mapping-data-flow-and-pipeline)
+- [Exercise 2 - Create Synapse Spark notebook to find top products](#Exercise-2---Create-Synapse-Spark-notebook-to-find-top-products)
 
 ## Lab setup and pre-requisites
 
@@ -37,7 +42,7 @@ Before starting this lab, you should complete **Lab 6: *Transform data with Azur
 >           - **File path**: wwi-02/online-user-profiles-02
 >           - **Import schema**: From connection/store
 
-## Exercise 1: Create mapping data flow and pipeline
+## Exercise 1 - Create mapping data flow and pipeline
 
 In this exercise, you create a mapping data flow that copies user profile data to the data lake, then create a pipeline that orchestrates executing the data flow, and later on, the Spark notebook you create later in this lab.
 
@@ -172,7 +177,7 @@ In this step, you create a new integration pipeline to execute the data flow.
 
     ![The pipeline run succeeded.](images/pipeline-user-profiles-run-complete.png "Pipeline runs")
 
-## Exercise 2: Create Synapse Spark notebook to find top products
+## Exercise 2 - Create Synapse Spark notebook to find top products
 
 Tailwind Traders uses a Mapping Data flow in Synapse Analytics to process, join, and import user profile data. Now they want to find the top 5 products for each user, based on which ones are both preferred and top, and have the most purchases in the past 12 months. Then, they want to calculate the top 5 products overall.
 

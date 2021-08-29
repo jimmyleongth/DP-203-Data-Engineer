@@ -16,6 +16,12 @@ After completing this lab, you will be able to:
 - Secure access to data in a data lake when using serverless SQL pools
 - Configure data lake security using Role-Based Access Control (RBAC) and Access Control Lists (ACLs)
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Querying a Data Lake Store using serverless SQL pools in Azure Synapse Analytics](#Exercise-1---Querying-a-Data-Lake-Store-using-serverless-SQL-pools-in-Azure-Synapse-Analytics)
+- [Exercise 2: Securing access to data using a serverless SQL pool in Azure Synapse Analytics](#Exercise-2---Securing-access-to-data-using-a-serverless-SQL-pool-in-Azure-Synapse-Analytics)
+
 ## Lab setup and pre-requisites
 
 Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment.
@@ -288,7 +294,7 @@ Let's create a view to wrap a SQL query. Views allow you to reuse queries and ar
     - **3) External file formats**: *QuotedCsvWithHeader* and *SynapseParquetFormat*.
     - **4) Views**: *CustomerInfo*
 
-## Exercise 2: Securing access to data using a serverless SQL pool in Azure Synapse Analytics
+## Exercise 2 - Securing access to data using a serverless SQL pool in Azure Synapse Analytics
 
 Tailwind Traders wants to enforce that any kind of modifications to sales data can happen in the current year only, while allowing all authorized users to query the entirety of data. They have a small group of admins who can modify historic data if needed.
 

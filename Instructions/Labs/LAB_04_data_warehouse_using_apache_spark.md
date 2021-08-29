@@ -15,6 +15,15 @@ After completing this lab, you will be able to:
 - Transform data with DataFrames in Spark pools in Azure Synapse Analytics
 - Integrate SQL and Spark pools in Azure Synapse Analytics
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1: Perform Data Exploration in Synapse Studio](#Exercise-1---Perform-Data-Exploration-in-Synapse-Studio)
+- [Exercise 2 - Ingesting data with Spark notebooks in Azure Synapse Analytics](#Exercise-2---Ingesting-data-with-Spark-notebooks-in-Azure-Synapse-Analytics)
+- [Exercise 3 - Transforming data with DataFrames in Spark pools in Azure Synapse Analytics](#Exercise-3---Transforming-data-with-DataFrames-in-Spark-pools-in-Azure-Synapse-Analytics)
+- [Exercise 4 - Integrating SQL and Spark pools in Azure Synapse Analytics](#Exercise-4---Integrating-SQL-and-Spark-pools-in-Azure-Synapse-Analytics)
+- [Important: Pause your SQL pool](#Important:-Pause-your-SQL-pool)
+
 ## Lab setup and pre-requisites
 
 Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment. Then complete the following setup tasks to create a dedicated SQL pool.
@@ -85,7 +94,7 @@ Before starting this lab, ensure you have successfully completed the setup steps
 >
 >       *07-create-wwi-perf-sale-heap with label CTAS : Sale_Heap. Cannot index into a null array.*
 
-## Exercise 1: Perform Data Exploration in Synapse Studio
+## Exercise 1 - Perform Data Exploration in Synapse Studio
 
 One of the first data engineering tasks typically performed during data ingestion is to explore the data that is to be imported. Data exploration allows engineers to understand better the contents of files being ingested. This process helps to identify any potential data quality issues that might hinder automated ingestion processes. Through exploration, we can gain insights into data types, data quality, and whether any processing needs to be performed on the files prior to importing the data into your data lake or using it for analytics workloads.
 
@@ -255,7 +264,7 @@ In this task, you will use a Synapse Spark notebook to explore a few of the file
 
     ![The stop session button is highlighted.](images/stop-session.png "Stop session")
 
-## Exercise 2: Ingesting data with Spark notebooks in Azure Synapse Analytics
+## Exercise 2 - Ingesting data with Spark notebooks in Azure Synapse Analytics
 
 Tailwind Traders has unstructured and semi-structured files from various data sources. Their data engineers want to use their Spark expertise to explore, ingest, and transform these files.
 
@@ -365,10 +374,9 @@ You recommend using Synapse Notebooks, which are integrated in the Azure Synapse
 
     ![The aggregates output is displayed.](images/2019-sale-parquet-aggregates.png "Aggregates output")
 
-
 13. Keep the notebook open for the next excercise.
 
-## Exercise 3: Transforming data with DataFrames in Spark pools in Azure Synapse Analytics
+## Exercise 3 - Transforming data with DataFrames in Spark pools in Azure Synapse Analytics
 
 In addition to the sales data, Tailwind Traders has customer profile data from an e-commerce system that provides top product purchases for each visitor of the site (customer) over the past 12 months. This data is stored within JSON files in the data lake. They have struggled with ingesting, exploring, and transforming these JSON files and want your guidance. The files have a hierarchical structure that they want to flatten before loading into relational data stores. They also wish to apply grouping and aggregate operations as part of the data engineering process. You recommend using Synapse Notebooks to explore and apply data transformations on the JSON files.
 
@@ -582,7 +590,7 @@ In addition to the sales data, Tailwind Traders has customer profile data from a
 
 11. Keep the notebook open for the next exercise.
 
-## Exercise 4: Integrating SQL and Spark pools in Azure Synapse Analytics
+## Exercise 4 - Integrating SQL and Spark pools in Azure Synapse Analytics
 
 Tailwind Traders wants to write to the SQL database associated with dedicated SQL pool after performing data engineering tasks in Spark, then reference that SQL database as a source for joining with Spark dataframes that contain data from other files.
 

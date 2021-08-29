@@ -17,6 +17,12 @@ After completing this lab, you will be able to:
 - Remove and rename DataFrame columns
 - Aggregate data stored in a DataFrame
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Working with DataFrames](#Exercise-1---Working-with-DataFrames)
+- [Exercise 2 - Working with DataFrames advanced methods](#Exercise-2---Working-with-DataFrames-advanced-methods)
+
 ## Lab setup and pre-requisites
 
 Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment. Additionally, you require an Azure Databricks cluster, which you should have created in Lab 1. If you did not complete lab 1 (or you have deleted your cluster), the instructions below include steps to create one.
@@ -51,7 +57,7 @@ In this exercise, you'll use some Databricks notebooks to learn fundamentals con
   - Learn how to work with **SparkSession** and **DataFrame** (aka ***Dataset[Row]***) classes.
   - Learn how to use the **count** action.
 
-### Task 2: Run the *Working with DataFrames* notebook
+### Task 3: Run the *Working with DataFrames* notebook
 
 1. In your Azure Databricks workspace, in the **04-Working-With-Dataframes** folder, open the **2.Use-common-dataframe-methods** notebook.
 1. Attach your cluster to the notebook before following the instructions and running the cells within. Within the notebook, you will:
@@ -60,7 +66,7 @@ In this exercise, you'll use some Databricks notebooks to learn fundamentals con
     - Use common DataFrame methods for performance
     - Explore the Spark API documentation
 
-### Task 3: Run the *Display Function* notebook
+### Task 4: Run the *Display Function* notebook
 
 1. In your Azure Databricks workspace, in the **04-Working-With-Dataframes** folder, open the **3.Display-function** notebook.
 1. Attach your cluster to the notebook before following the instructions and running the cells within. Within the notebook, you will:
@@ -75,7 +81,7 @@ In this exercise, you'll use some Databricks notebooks to learn fundamentals con
       - show(..)
       - display(..)
 
-### Task 4: Complete the *Distinct Articles* exercise notebook
+### Task 5: Complete the *Distinct Articles* exercise notebook
 
 1. In your Azure Databricks workspace, in the **04-Working-With-Dataframes** folder, open the **4.Exercise: Distinct Articles** notebook.
 1. Attach your cluster to the notebook before following the instructions and running the cells within. In this notebook, you read Parquet files, apply necessary transformations, perform a total count of records, then verify that all the data was correctly loaded. As a bonus, you can try defining a schema that matches the data and update the read operation to use the schema.

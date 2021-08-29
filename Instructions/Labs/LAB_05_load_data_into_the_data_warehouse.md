@@ -14,29 +14,29 @@ After completing this lab, you will be able to:
 - Import data with PolyBase and COPY using T-SQL
 - Use data loading best practices in Azure Synapse Analytics
 
+## Lab details
+
+- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
+- [Exercise 1 - Import data with PolyBase and COPY using T-SQL](#Exercise-1---Import-data-with-PolyBase-and-COPY-using-T-SQL)
+- [Exercise 2 - Petabyte-scale ingestion with Azure Synapse Pipelines](#Exercise-2---Petabyte-scale-ingestion-with-Azure-Synapse-Pipelines)
+- [Important: Pause your SQL pool](#Important:-Pause-your-SQL-pool)
+
 ## Lab setup and pre-requisites
 
-- Before starting this lab, you must complete **Lab 4: *Explore, transform, and load data into the Data Warehouse using Apache Spark***.
+Before starting this lab, you must complete **Lab 4: *Explore, transform, and load data into the Data Warehouse using Apache Spark***.
 
 This lab uses the dedicated SQL pool you created in the previous lab. You should have paused the SQL pool at the end of the previous lab, so resume it by following these instructions:
 
 1. Open Synapse Studio (<https://web.azuresynapse.net/>).
-
 2. Select the **Manage** hub.
-
-    ![The manage hub is highlighted.](images/manage-hub.png "Manage hub")
-
 3. Select **SQL pools** in the left-hand menu. If the **SQLPool01** dedicated SQL pool is paused, hover over its name and select **&#9655;**.
 
     ![The resume button is highlighted on the dedicated SQL pool.](images/resume-dedicated-sql-pool.png "Resume")
 
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
-
-    ![The resume button is highlighted.](images/resume-dedicated-sql-pool-confirm.png "Resume")
-
 5. Continue to the next exercise while the dedicated SQL pool resumes.
 
-## Exercise 1: Import data with PolyBase and COPY using T-SQL
+## Exercise 1 - Import data with PolyBase and COPY using T-SQL
 
 There are different options for loading large amounts and varying types of data into Azure Synapse Analytics, such as through T-SQL commands using a Synapse SQL Pool, and with Azure Synapse pipelines. In our scenario, Wide World Importers stores most of their raw data in a data lake and in different formats. Among the data loading options available to them, WWI's data engineers are most comfortable using T-SQL.
 
@@ -360,7 +360,7 @@ Let's try this same operation using PolyBase.
 
 3. Keep the script open for the next exercise.
 
-## Exercise 2: Petabyte-scale ingestion with Azure Synapse Pipelines
+## Exercise 2 - Petabyte-scale ingestion with Azure Synapse Pipelines
 
 Tailwind Traders needs to ingest large volumes of sales data into the data warehouse. They want a repeatable process that can efficiently load the data. When the data loads, they want to prioritize the data movement jobs so they take priority.
 
