@@ -114,7 +114,7 @@ from com.microsoft.hyperspace.index import *
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 # Replace the value below with the name of your primary ADLS Gen2 account for your Synapse workspace
-datalake = 'REPLACE_WITH_YOUR_DATALAKE_NAME'
+datalake = 'asadatalakeSUFFIX'
 
 dfSales = spark.read.parquet("abfss://wwi-02@" + datalake + ".dfs.core.windows.net/sale-small/Year=2019/Quarter=Q4/Month=12/*/*.parquet")
 dfSales.show(10)
@@ -126,7 +126,7 @@ dfCustomers.show(10)
 hyperspace = Hyperspace(spark)
 ```
 
-7. Replace the `REPLACE_WITH_YOUR_DATALAKE_NAME` value with the name of your primary ADLS Gen2 account for your Synapse workspace, which should be **asadatalake*xxxxxx*** (where *xxxxxx* is your unique resource name extension).
+7. In the **datalake** variable value, replace ***SUFFIX*** with your unique resource name extension, so that the variable represents the name of your Azure Data Lake storage account (which should be **asadatalake*xxxxxx***).
 
     >    To confirm this, do the following:
     >
