@@ -28,6 +28,8 @@ This lab uses the dedicated SQL pool you created in the previous lab. You should
 
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
 
+> **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to pause your SQL pool!
+
 ## Exercise 1 - Import data with PolyBase and COPY using T-SQL
 
 There are different options for loading large amounts and varying types of data into Azure Synapse Analytics, such as through T-SQL commands using a Synapse SQL Pool, and with Azure Synapse pipelines. In our scenario, Wide World Importers stores most of their raw data in a data lake and in different formats. Among the data loading options available to them, WWI's data engineers are most comfortable using T-SQL.

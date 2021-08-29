@@ -29,6 +29,8 @@ This lab uses the dedicated SQL pool you created in the previous lab. You should
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
 5. Continue to the next exercise while the dedicated SQL pool resumes.
 
+> **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to pause your SQL pool!
+
 ## Exercise 1 - Code-free transformation at scale with Azure Synapse Pipelines
 
 Tailwind Traders would like code-free options for data engineering tasks. Their motivation is driven by the desire to allow junior-level data engineers who understand the data but do not have a lot of development experience build and maintain data transformation operations. The other driver for this requirement is to reduce fragility caused by complex code with reliance on libraries pinned to specific versions, remove code testing requirements, and improve ease of long-term maintenance.

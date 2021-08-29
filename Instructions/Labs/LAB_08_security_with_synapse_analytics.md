@@ -35,6 +35,8 @@ This lab uses the dedicated SQL pool you created in the previous lab. You should
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
 5. Continue to the next exercise while the dedicated SQL pool resumes.
 
+> **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to pause your SQL pool!
+
 ## Exercise 1 - Securing Azure Synapse Analytics supporting infrastructure
 
 Azure Synapse Analytics (ASA) is a powerful solution that handles security for many of the resources that it creates and manages. In order to run ASA, however, some foundational security measures need to be put in place to ensure the infrastructure that it relies upon is secure. In this exercise, we will walk through securing the supporting infrastructure of ASA.

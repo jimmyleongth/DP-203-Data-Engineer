@@ -40,6 +40,8 @@ Before starting this lab, ensure you have successfully completed the setup steps
 5. Click **Review + create**. Then select **Create** on the validation step.
 6. Wait until the dedicated SQL pool is created.
 
+> **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to pause your SQL pool!
+
 ### Task 2: Execute PowerShell script
 
 1. In the hosted VM environment provided for this course, open Powershell in administrator mode, and execute the following to set the execution policy to Unrestricted so you can run the local PowerShell script file:

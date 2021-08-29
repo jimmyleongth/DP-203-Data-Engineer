@@ -16,14 +16,6 @@ After completing this lab, you will be able to:
 - Apply watermarking to remove stale data
 - Connect to Event Hubs read and write streams
 
-## Lab details
-
-- [Concepts](#Concepts)
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Explore Structured Streaming Concepts](#Exercise-1---Explore-Structured-Streaming-Concepts)
-- [Exercise 2 - Work with Time Windows](#Exercise-2---Work-with-Time-Windows)
-- [Exercise 3 - Use Structured Streaming with Azure EventHubs](#Exercise-3---Use-Structured-Streaming-with-Azure-EventHubs)
-
 ## Concepts
 
 Apache Spark Structured Streaming is a fast, scalable, and fault-tolerant stream processing API. You can use it to perform analytics on your streaming data in near real time.

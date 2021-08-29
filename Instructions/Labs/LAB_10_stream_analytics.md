@@ -15,16 +15,6 @@ After completing this lab, you will be able to:
 - Scale the Azure Stream Analytics job to increase throughput through partitioning
 - Repartition the stream input to optimize parallelization
 
-## Lab details
-
-- [Technology overview](#Technology-overview)
-- [Scenario overview](#Scenario-overview)
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Configure services](#Exercise-1---Configure-services)
-- [Important: Pause your SQL pool]
-- [Exercise 2 - Generate and aggregate data](#Exercise-2---Generate-and-aggregate-data)
-- [Important: Cleanup](#Important:-Cleanup)
-
 ## Technology overview
 
 ### Azure Stream Analytics
@@ -63,6 +53,8 @@ This lab uses the dedicated SQL pool you created in the previous lab. You should
 
 4. When prompted, select **Resume**. It will take a minute or two to resume the pool.
 5. Continue to the next exercise while the dedicated SQL pool resumes.
+
+> **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to pause your SQL pool!
 
 ## Exercise 1 - Configure services
 
