@@ -94,7 +94,6 @@ Rather than creating a script with OPENROWSET and a path to the root 2019 folder
 
     > **Note**: The **Properties** pane for the script open automatically. You can close it by using the **Properties** button above it on the right to make it easier to work with the script.
 
-
     The generated script contains the following components:
 
     - **1)** The script begins with creating the *SynapseParquetFormat* external file format with a *FORMAT_TYPE* of *PARQUET*.
@@ -126,7 +125,7 @@ CREATE EXTERNAL TABLE All2019Sales (
 GO
 ```
 
-5. Make sure the script is connected to the serverless SQL pool (**Built-in**) and the database is set to **demo**.
+5. Make sure the script is connected to the serverless SQL pool (**Built-in**) and that the **demo** database is selected in the **Use database** list (use the **...** button to see the list if the pane is too small to display it, and then use the &#8635; button to refresh the list if needed).
 
     ![The Built-in pool and demo database are selected.](images/built-in-and-demo.png "Script toolbar")
 
@@ -267,7 +266,7 @@ Let's create a view to wrap a SQL query. Views allow you to reuse queries and ar
 
     ![The script is displayed.](images/create-view-script.png "Create view script")
 
-5. In the **Use database** list, select **demo** (use the **...** button to see the list if the pane is too small to display it, and then use the &#8635; button to refresh the list if needed), and then run the script.
+5. In the **Use database** list, ensure **demo** is still selected, and then run the script.
 
     We just created the view to wrap the SQL query that selects data from the CSV file, then selected rows from the view:
 
@@ -400,7 +399,7 @@ To test out the permissions, we will add your own account to the groups.
 
     ![The form is displayed as described.](images/add-tailwind-history-owners.png "Add role assignment")
 
-    The **tailwind-history-owners** security group is now assigned to the Azure Storage built-in RBAC role `Storage Blob Data Owner` for the Azure Storage account containing the data lake. This allows Azure AD user and service principals that are added to this role to have the ability to modify all data.
+    The **tailwind-history-owners** security group is now assigned to the Azure Storage built-in RBAC role **Storage Blob Data Owner** for the Azure Storage account containing the data lake. This allows Azure AD user and service principals that are added to this role to have the ability to modify all data.
 
     Tailwind Traders needs to add the user security principals who will have have permissions to modify all historical data to the **tailwind-history-owners** security group.
 
