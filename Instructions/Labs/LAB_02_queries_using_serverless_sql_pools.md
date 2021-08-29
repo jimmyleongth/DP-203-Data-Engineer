@@ -92,9 +92,7 @@ Rather than creating a script with OPENROWSET and a path to the root 2019 folder
 
     ![The create external table form is displayed.](images/create-external-table-form.png "Create external table")
 
-    > **Note**: Make sure the script is connected to the serverless SQL pool (`Built-in`) **(1)** and the database is set to `demo` **(2)**.
-
-    ![The Built-in pool and demo database are selected.](images/built-in-and-demo.png "Script toolbar")
+    > **Note**: The **Properties** pane for the script open automatically. You can close it by using the **Properties** button above it on the right to make it easier to work with the script.
 
 
     The generated script contains the following components:
@@ -104,7 +102,7 @@ Rather than creating a script with OPENROWSET and a path to the root 2019 folder
     - **3)** The CREATE EXTERNAL TABLE WITH statement specifies the file location and refers to the new external file format and data source created above.
     - **4)** Finally, we select the top 100 results from the `2019Sales` external table.
     
-4 In the CREATE EXTERNAL TABLE statement, in the `[TransactionId] varchar(8000)` line, add `COLLATE Latin1_General_100_BIN2_UTF8`; and replace the *LOCATION* value in the CREATE EXTERNAL TABLE statement with `sale-small/Year=2019/*/*/*/*.parquet` so that the statement becomes similar to the following (except with your unique resource SUFFIX):
+4 In the CREATE EXTERNAL TABLE statement, in the **[TransactionId] varchar(8000)** line, add `COLLATE Latin1_General_100_BIN2_UTF8`; and replace the *LOCATION* value with `sale-small/Year=2019/*/*/*/*.parquet` so that the statement becomes similar to the following (except with your unique resource SUFFIX):
 
 ```sql
 CREATE EXTERNAL TABLE All2019Sales (
@@ -128,7 +126,11 @@ CREATE EXTERNAL TABLE All2019Sales (
 GO
 ```
 
-5. Run the modified script.
+5. Make sure the script is connected to the serverless SQL pool (**Built-in**) and the database is set to **demo**.
+
+    ![The Built-in pool and demo database are selected.](images/built-in-and-demo.png "Script toolbar")
+
+6. Run the modified script.
 
     After running the script, we can see the output of the SELECT query against the **All2019Sales** external table. This displays the first 100 records from the Parquet files located in the *YEAR=2019* folder.
 
