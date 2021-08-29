@@ -59,7 +59,7 @@ Before starting this lab, ensure you have successfully completed the setup steps
 3. Enter the following command to run a PowerShell script that creates objects in the SQL pool:
 
     ```
-    .\setup-sql.ps1`
+    .\setup-sql.ps1
     ```
 
 4. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell.
