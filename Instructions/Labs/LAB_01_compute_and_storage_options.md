@@ -261,7 +261,7 @@ for file in files:
     print(file.name, file.isDir, file.isFile, file.path, file.size)
 ```
 
-2. Run the new cell and observe how `mssparkutils` is used to work with the file system.
+2. Run the new cell and observe how MSSparkUtils is used to work with the file system.
 
 ### Task 3 Stop the session
 
