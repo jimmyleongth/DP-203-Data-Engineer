@@ -12,12 +12,6 @@ After completing this lab, you will be able to:
 
 - Orchestrate data movement and transformation in Azure Synapse Pipelines
 
-## Lab details
-
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Create mapping data flow and pipeline](#Exercise-1---Create-mapping-data-flow-and-pipeline)
-- [Exercise 2 - Create Synapse Spark notebook to find top products](#Exercise-2---Create-Synapse-Spark-notebook-to-find-top-products)
-
 ## Lab setup and pre-requisites
 
 Before starting this lab, you should complete **Lab 6: *Transform data with Azure Data Factory or Azure Synapse Pipelines***.

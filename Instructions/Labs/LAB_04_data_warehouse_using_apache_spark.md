@@ -15,15 +15,6 @@ After completing this lab, you will be able to:
 - Transform data with DataFrames in Spark pools in Azure Synapse Analytics
 - Integrate SQL and Spark pools in Azure Synapse Analytics
 
-## Lab details
-
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1: Perform Data Exploration in Synapse Studio](#Exercise-1---Perform-Data-Exploration-in-Synapse-Studio)
-- [Exercise 2 - Ingesting data with Spark notebooks in Azure Synapse Analytics](#Exercise-2---Ingesting-data-with-Spark-notebooks-in-Azure-Synapse-Analytics)
-- [Exercise 3 - Transforming data with DataFrames in Spark pools in Azure Synapse Analytics](#Exercise-3---Transforming-data-with-DataFrames-in-Spark-pools-in-Azure-Synapse-Analytics)
-- [Exercise 4 - Integrating SQL and Spark pools in Azure Synapse Analytics](#Exercise-4---Integrating-SQL-and-Spark-pools-in-Azure-Synapse-Analytics)
-- [Important: Pause your SQL pool](#Important:-Pause-your-SQL-pool)
-
 ## Lab setup and pre-requisites
 
 Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment. Then complete the following setup tasks to create a dedicated SQL pool.

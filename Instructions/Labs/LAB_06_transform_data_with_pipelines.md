@@ -14,14 +14,6 @@ After completing this lab, you will be able to:
 - Create data pipeline to import poorly formatted CSV files
 - Create Mapping Data Flows
 
-## Lab details
-
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Code-free transformation at scale with Azure Synapse Pipelines](#Exercise-1---Code-free-transformation-at-scale-with-Azure-Synapse-Pipelines)
-- [Exercise 2 - Create Mapping Data Flow for top product purchases](#Exercise-2---Create-Mapping-Data-Flow-for-top-product-purchases)
-- [Exercise 3 - Orchestrate data movement and transformation in Azure Synapse Pipelines](#Exercise-3---Orchestrate-data-movement-and-transformation-in-Azure-Synapse-Pipelines)
-- [Important: Pause your SQL pool](#Important:-Pause-your-SQL-pool)
-
 ## Lab setup and pre-requisites
 
 Before starting this lab, you must complete **Lab 5: *Ingest and load data into the Data Warehouse***.

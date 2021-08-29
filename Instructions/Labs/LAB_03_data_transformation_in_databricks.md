@@ -17,12 +17,6 @@ After completing this lab, you will be able to:
 - Remove and rename DataFrame columns
 - Aggregate data stored in a DataFrame
 
-## Lab details
-
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Working with DataFrames](#Exercise-1---Working-with-DataFrames)
-- [Exercise 2 - Working with DataFrames advanced methods](#Exercise-2---Working-with-DataFrames-advanced-methods)
-
 ## Lab setup and pre-requisites
 
 Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment. Additionally, you require an Azure Databricks cluster, which you should have created in Lab 1. If you did not complete lab 1 (or you have deleted your cluster), the instructions below include steps to create one.

@@ -14,13 +14,6 @@ After completing this lab, you will be able to:
 - Query Azure Cosmos DB with Apache Spark for Synapse Analytics
 - Query Azure Cosmos DB with serverless SQL pool for Azure Synapse Analytics
 
-## Lab details
-
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Configuring Azure Synapse Link with Azure Cosmos DB](#Exercise-1---Configuring-Azure-Synapse-Link-with-Azure-Cosmos-DB)
-- [Exercise 2 - Querying Azure Cosmos DB with Apache Spark for Synapse Analytics](#Exercise-2---Querying-Azure-Cosmos-DB-with-Apache-Spark-for-Synapse-Analytics)
-- [Exercise 3 - Querying Azure Cosmos DB with serverless SQL pool for Azure Synapse Analytics](#Exercise-3---Querying-Azure-Cosmos-DB-with-serverless-SQL-pool-for-Azure-Synapse-Analytics)
-
 ## Lab setup and pre-requisites
 
 Before starting this lab, you should complete **Lab 6: *Transform data with Azure Data Factory or Azure Synapse Pipelines***.

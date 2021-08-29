@@ -16,12 +16,6 @@ After completing this lab, you will be able to:
 - Secure access to data in a data lake when using serverless SQL pools
 - Configure data lake security using Role-Based Access Control (RBAC) and Access Control Lists (ACLs)
 
-## Lab details
-
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Querying a Data Lake Store using serverless SQL pools in Azure Synapse Analytics](#Exercise-1---Querying-a-Data-Lake-Store-using-serverless-SQL-pools-in-Azure-Synapse-Analytics)
-- [Exercise 2: Securing access to data using a serverless SQL pool in Azure Synapse Analytics](#Exercise-2---Securing-access-to-data-using-a-serverless-SQL-pool-in-Azure-Synapse-Analytics)
-
 ## Lab setup and pre-requisites
 
 Before starting this lab, ensure you have successfully completed the setup steps to create your lab environment.

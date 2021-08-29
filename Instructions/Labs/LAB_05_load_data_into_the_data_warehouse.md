@@ -14,13 +14,6 @@ After completing this lab, you will be able to:
 - Import data with PolyBase and COPY using T-SQL
 - Use data loading best practices in Azure Synapse Analytics
 
-## Lab details
-
-- [Lab setup and pre-requisites](#Lab-setup-and-pre-requisites)
-- [Exercise 1 - Import data with PolyBase and COPY using T-SQL](#Exercise-1---Import-data-with-PolyBase-and-COPY-using-T-SQL)
-- [Exercise 2 - Petabyte-scale ingestion with Azure Synapse Pipelines](#Exercise-2---Petabyte-scale-ingestion-with-Azure-Synapse-Pipelines)
-- [Important: Pause your SQL pool](#Important:-Pause-your-SQL-pool)
-
 ## Lab setup and pre-requisites
 
 Before starting this lab, you must complete **Lab 4: *Explore, transform, and load data into the Data Warehouse using Apache Spark***.
