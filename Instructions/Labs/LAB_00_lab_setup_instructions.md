@@ -62,7 +62,7 @@ Perform the following tasks to prepare your environment for the labs.
     .\dp-203-setup.ps1
     ```
 
-6. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell, which should display the Azure subscriptions to which you have access. If you have multiple subscriptions with the same name, use the unique IDs to identify the subscription that you want to use in the labs.
+6. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell, which should display the Azure subscriptions to which you have access.
 
 7. When prompted, sign into your Azure account again (this is required so that the script can manage resources in your Azure subscription - be sure you use the same credentials as before).
 
