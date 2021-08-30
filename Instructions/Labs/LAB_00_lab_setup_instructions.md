@@ -16,6 +16,14 @@ The following instructions enables learners to prepare their lab environments fo
 
 Before starting setup, you will need an Azure Account with the ability to create an Azure Synapse Workspace.
 
+> **Important note if using an Azure Pass subscription**
+>
+> If you are using an account for which you have previously redeemed an Azure Pass subscription that has expired, your account may be associated with multiple Azure subscriptions with the same name (*Azure Pass - Sponsorship*). Before starting the setup steps, ensure that only the most recent *active* subscription of this name is enabled by following these steps:
+>
+> 1. Open the Azure portal at `https://portal.azure.com` and sign in using the account associated with your subscription.
+> 2. On the portal toolbar at the top of the page, select the **Directories and Subscriptions** button.
+> 3. In the **Default subscriptions filter** drop-down list, *de-select* any **(Disabled) Azure Pass - Sponsorship** subscriptions, and ensure that <u>only</u> the active **Azure Pass - Sponsorship** subscription that you want to use is selected.
+
 ## Setup steps
 
 Perform the following tasks to prepare your environment for the labs.
@@ -65,3 +73,5 @@ Perform the following tasks to prepare your environment for the labs.
 While the script runs, your instructor will present the first module of the course. Your environment should be ready for you when it's time to start the first lab.
 
 > **Note**: The script will take about 45-60 minutes to complete. The script will create the Azure resources with randomly generated names. If the script appears to "stall" (no new information is displayed for 10 minutes) press ENTER and check for any error messages - often the script will continue without any issues.  In some rare cases, an identical resource name may already be in use, there may be capacity constraints for specific resources in the randomly selected region, or transient network issues may occur; causing an error. If this happens, use the Azure portal to delete the **data-engineering-synapse-*xxxxxx*** resource group created by the script and re-run the script.
+>
+> If an error indicating that you must supply the **tenant ID** for your Azure pass subscription is displayed, ensure you have followed the instructions in the **Requirements** section above to enable only the Azure Pass subscription that you want to use.
