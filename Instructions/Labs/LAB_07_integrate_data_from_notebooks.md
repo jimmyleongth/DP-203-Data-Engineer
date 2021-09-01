@@ -23,15 +23,15 @@ Before starting this lab, you should complete **Lab 6: *Transform data with Azur
 >       - **Cosmos DB account name**: asacosmosdb*xxxxxxx*
 >       - **Database name**: CustomerProfile
 > 2. On the **Data** hub, create the following **Integration datasets**:
->       - asal400_ecommerce_userprofiles_source:
+>       - asal400_customerprofile_cosmosdb:
 >           - **Source**: Azure Cosmos DB (SQL API)
->           - **Name**: asal400_ecommerce_userprofiles_source
+>           - **Name**: asal400_customerprofile_cosmosdb
 >           - **Linked service**: asacosmosdb01
 >           - **Collection**: OnlineUserProfile01
->       - asal400_customerprofile_cosmosdb
+>       - asal400_ecommerce_userprofiles_source
 >           - **Source**: Azure Data Lake Storage Gen2
 >           - **Format**: JSON
->           - **Name**: asal400_customerprofile_cosmosdb
+>           - **Name**: asal400_ecommerce_userprofiles_source
 >           - **Linked service**: asadatalake*xxxxxxx*
 >           - **File path**: wwi-02/online-user-profiles-02
 >           - **Import schema**: From connection/store
