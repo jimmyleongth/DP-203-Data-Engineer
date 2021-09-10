@@ -195,7 +195,7 @@ In this exercise, you will create a Synapse Spark notebook to make these calcula
 
     ![The attach to Spark pool menu item is highlighted.](images/notebook-top-products-attach-pool.png "Select Spark pool")
 
-5. In the Python code, replace the Parquet file name with `*.parquet` to select all Parquet files in the **top-products** folder. For example, the path should be similar to: *abfss://wwi-02@asadatalakexxxxxxx.dfs.core.windows.net/top-products/*.parquet*.
+5. In the Python code, replace the Parquet file name with `*.parquet` to select all Parquet files in the **top-products** folder. For example, the path should be similar to: *abfss://wwi-02@asadatalakexxxxxxx.dfs.core.windows.net/top-products/*.parquet.
 
     ![The filename is highlighted.](images/notebook-top-products-filepath.png "Folder path")
 
