@@ -643,7 +643,7 @@ The Apache Spark pool to Synapse SQL connector is a data source implementation f
 
 6. Run the following code in a new cell to read from the **TopSales** SQL table and save it to a temporary view:
 
-    ```java
+    ```scala
     %%spark
     // Make sure the name of the SQL pool (SQLPool01 below) matches the name of your SQL pool.
     val df2 = spark.read.synapsesql("SQLPool01.wwi.TopPurchases")
