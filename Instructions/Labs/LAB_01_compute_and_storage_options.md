@@ -60,7 +60,7 @@ In this exercise, you will use an Azure Databricks workspace and perform Structu
 1. Select **Import**.
 1. Select the **11-Delta-Lake-Architecture** folder that appears.
 
-### Task 2: Run code in the *1-Delta-Architecture* notebook
+### Task 3: Run code in the *1-Delta-Architecture* notebook
 
 1. Open the **1-Delta-Architecture** notebook.
 1. Attach your cluster to the notebook before following the instructions and running the cells it contains. To run a code cell, select the cell you want to run and then use the **&#x23f5;** button at its top right to run it.
