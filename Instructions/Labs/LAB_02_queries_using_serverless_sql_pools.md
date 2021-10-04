@@ -439,7 +439,7 @@ To test out the permissions, we will add your own account to the groups.
 
 ### Task 5: Test permissions
 
-1. In Synapse Studio, in the **Data** hub, on the **Linked** tab select the **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** container; and in the *sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231* folder, right-click the **sale-small-20161231-snappy.parquet file**, select **New SQL script**, and select **Select TOP 100 rows**.
+1. In Synapse Studio, in the **Data** hub, on the **Linked** tab select the **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** container; and in the *sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231* folder, right-click the **sale-small-20191231-snappy.parquet file**, select **New SQL script**, and select **Select TOP 100 rows**.
 
     ![The Data hub is displayed with the options highlighted.](images/data-hub-parquet-select-rows.png "Select TOP 100 rows")
 
@@ -457,7 +457,7 @@ To test out the permissions, we will add your own account to the groups.
 
     Let's give it a try.
 
-3. In the **wwi-02** pane, right-click the **sale-small-20161231-snappy.parquet** file, select **New Notebook**, then select **Load to DataFrame**.
+3. In the **wwi-02** pane, right-click the **sale-small-20191231-snappy.parquet** file, select **New Notebook**, then select **Load to DataFrame**.
 
     ![The Data hub is displayed with the options highlighted.](images/data-hub-parquet-new-notebook.png "New notebook")
 
@@ -472,7 +472,7 @@ To test out the permissions, we will add your own account to the groups.
 7. Enter the following code, replacing *SUFFIX* with the unique suffix for your data lake resource (you can copy this from cell 1 above):
 
     ```python
-    df.write.parquet('abfss://wwi-02@asadatalakeSUFFIX.dfs.core.windows.net/sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231/sale-small-20161231-snappy-test.parquet')
+    df.write.parquet('abfss://wwi-02@asadatalakeSUFFIX.dfs.core.windows.net/sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231/sale-small-20191231-snappy-test.parquet')
     ```
 
 8. Run the new cell you just added. You should see a **403 error** in the output.
@@ -518,6 +518,6 @@ To test out the permissions, we will add your own account to the groups.
 
     Now let's verify that the file was written to the data lake.
 
-19. In Synapse Studio, in the **Data** hub, on the **Linked** tab select the **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** container; and browse to the *sale-small/Year=2016/Quarter=Q4/Month=12/Day=20161231* folder to verify that a new file has been added to this folder.
+19. In Synapse Studio, in the **Data** hub, on the **Linked** tab select the **Azure Data Lake Storage Gen2/asaworkspace*xxxxxxx*/wwi02** container; and browse to the *sale-small/Year=2019/Quarter=Q4/Month=12/Day=20191231* folder to verify that a new file has been added to this folder.
 
     ![The test Parquet file is displayed.](images/test-parquet-file.png "Test parquet file")
