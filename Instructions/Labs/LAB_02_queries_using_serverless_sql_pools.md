@@ -413,7 +413,7 @@ To test out the permissions, we will add your own account to the groups.
 
 ### Task 4: Configure data lake security - Access Control Lists (ACLs)
 
-1. Select **Storage Explorer (preview)** on the left-hand menu. Expand **CONTAINERS** and select the **wwi-02** container. Open the **sale-small** folder, right-click the **Year=2019** folder, then select **Manage Access..**.
+1. Select **Storage browser (preview)** on the left-hand menu. Expand **Blob containers** and select the **wwi-02** container. Open the **sale-small** folder, right-click the **Year=2019** folder, then select **Manage ACL**.
 
     ![The 2019 folder is highlighted and Manage Access is selected.](images/manage-access-2019.png "Storage Explorer")
 
