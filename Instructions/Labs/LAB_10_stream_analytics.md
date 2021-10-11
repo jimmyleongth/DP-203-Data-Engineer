@@ -155,7 +155,7 @@ In this task, you will create a table in a Synapse dedicated SQL pool to store a
 
 Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, such as create alerts, feed information to a reporting tool, or store it for later use.
 
-In this task, you will configure Stream Analytics to use the event hub you created as a source, query and analyze that data, then send it to Power BI for reporting and aggregated data to Azure Synapse Analytics.
+In this task, you will configure Stream Analytics to use the event hub you created as a source, query and analyze that data.
 
 1. In the Azure portal, in the **data-engineering-synapse-*xxxxxxx*** resource group, select the **as*xxxxxxx*** Stream Analytics job.
 
