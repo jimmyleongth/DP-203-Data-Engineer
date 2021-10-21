@@ -33,14 +33,14 @@ Before starting this lab, ensure you have successfully completed the setup steps
 
     ![The new button is highlighted.](images/new-dedicated-sql-pool.png "New dedicated SQL pool")
 
-4. In the **Create dedicated SQL pool** page, enter **`SQLPool01`** (You <u>must</u> use this name exactly as displayed here) for the pool name, then set the performance level to **DW100c** (move the slider all the way to the left).
+4. In the **Create dedicated SQL pool** page, enter **`SQLPool01`** (You <u>must</u> use this name exactly as displayed here) for the pool name, set the **Geo-redundant** option to **No**, and then set the performance level to **DW100c** (move the slider all the way to the left).
 
     ![Settings for a DW100c pool named SQLPool01.](images/new-sql-pool.png "New DW100c SQL Pool")
 
 5. Click **Review + create**. Then select **Create** on the validation step.
 6. Wait until the dedicated SQL pool is created.
 
-> **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to pause your SQL pool!
+> **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to **pause your SQL pool**
 
 ### Task 2: Execute PowerShell script
 
