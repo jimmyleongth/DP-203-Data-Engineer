@@ -286,7 +286,7 @@ The data has the following fields: **Date**, **NorthAmerica**, **SouthAmerica**,
     GO
     ```
 
-    Notice the FIELDTERMINATO` and ROWTERMINATOR properties that enable the code to correctly parse the file.
+    Notice the FIELDTERMINATOR` and ROWTERMINATOR properties that enable the code to correctly parse the file.
 
 2. Run the script.
 
@@ -418,7 +418,7 @@ To run loads with appropriate compute resources, create loading users designated
 
     ![The Manage menu item is highlighted.](images/manage-hub.png "Manage hub")
 
-4. Select **Linked services** in the left-hand menu, then select the **sqlpool01_import01** linked service (if this is not listed, use the **&#8635;** button at the top left to refresh the view).
+4. Select **Linked services** in the left-hand menu, then select the **sqlpool01_import01** linked service (if this is not listed, use the **&#8635;** button at the top right to refresh the view).
 
     ![Linked services is displayed.](images/linked-services.png "Linked services")
 
