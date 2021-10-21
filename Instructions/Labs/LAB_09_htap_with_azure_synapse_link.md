@@ -25,11 +25,10 @@ Before starting this lab, you should complete **Lab 6: *Transform data with Azur
 >       - **Cosmos DB account name**: asacosmosdb*xxxxxxx*
 >       - **Database name**: CustomerProfile
 > 2. On the **Data** hub, create the following **Integration dataset**:
->       - **Source**: Azure Data Lake Storage Gen2
->       - **Format**: JSON
+>       - **Source**: Azure Cosmos DB (SQL API)
 >       - **Name**: asal400_customerprofile_cosmosdb
->       - **Linked service**: asadatalake*xxxxxxx*
->       - **File path**: wwi-02/online-user-profiles-02
+>       - **Linked service**: asacosmosdb01
+>       - **Collection**: OnlineUserProfile01
 >       - **Import schema**: From connection/store
 
 ## Exercise 1 - Configuring Azure Synapse Link with Azure Cosmos DB
