@@ -128,7 +128,7 @@ In this task, you will create a table in a Synapse dedicated SQL pool to store a
 
     ![The Data hub is highlighted.](images/data-hub.png "Data hub")
 
-2. Select the **Workspace** tab, expand **Databases** and right-click **SQLPool01**. Then select **New SQL script**, and select **Empty script**.
+2. Select the **Workspace** tab, expand the **SQL database group** and right-click **SQLPool01**. Then select **New SQL script**, and select **Empty script**.
 
     ![The New SQL script option is highlighted in the SQLPool01 context menu.](images/synapse-new-script.png "New SQL script")
 
