@@ -354,7 +354,7 @@ Tailwind Traders wants to explore the Azure Cosmos DB analytical store with T-SQ
 
     ![Data hub.](images/data-hub.png "Data hub")
 
-8. Select the **Workspace** tab and expand the **Databases** group. Expand the **Profiles** SQL on-demand database (if you do not see this on the list, refresh the **Databases** list). Expand **Views**, then right-click the **UserProfileHTA** view, select **New SQL script**, and then **Select TOP 100 rows**.
+8. Select the **Workspace** tab and expand the **SQL database** group. Expand the **Profiles** SQL on-demand database (if you do not see this on the list, refresh the **Databases** list). Expand **Views**, then right-click the **UserProfileHTA** view, select **New SQL script**, and then **Select TOP 100 rows**.
 
     ![The select top 100 rows query option is highlighted.](images/new-select-query.png "New select query")
 
