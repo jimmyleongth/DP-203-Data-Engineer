@@ -185,7 +185,7 @@ Transparent Data Encryption (TDE) is a feature of SQL Server that provides encry
 
 ### Task 1 - Column Level Security
 
-It is important to identify data columns of that hold sensitive information. Types of sensitive could be social security numbers, email addresses, credit card numbers, financial totals, and more. Azure Synapse Analytics allows you define permissions that prevent users or roles select privileges on specific columns.
+It is important to identify data columns that hold sensitive information. Types of sensitive could be social security numbers, email addresses, credit card numbers, financial totals, and more. Azure Synapse Analytics allows you define permissions that prevent users or roles select privileges on specific columns.
 
 1. In **Azure Synapse Studio**, in the **Develop** hub, expand the **SQL scripts** section, and select **Column Level Security**.
 2. In the toolbar, connect to the **SQLPool01** database.
