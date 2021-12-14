@@ -371,7 +371,7 @@ Issues include invalid characters in the revenue currency data, and misaligned c
 
     ![The derived column's settings are displayed as described.](images/data-flow-campaign-analysis-derived-column-settings.png "Derived column's settings")
 
-    The expressions you defined will concatenate and clean-up the **RevenuePart1** and **Revenue** values and the **RevelueTargetPart1** and **RevenueTarget** values.
+    The expressions you defined will concatenate and clean-up the **RevenuePart1** and **Revenue** values and the **RevenueTargetPart1** and **RevenueTarget** values.
 
 13. Select the **+** to the right of the **ConvertColumnTypesAndValues** step, then select the **Select** schema modifier from the context menu.
 
@@ -442,7 +442,7 @@ In order to run the new data flow, you need to create a new pipeline and add a d
 
     ![The data flow is selected.](images/pipeline-campaign-analysis-data-flow-settings-tab.png "Settings")
 
-8. Select **Publish all** to save your new pipeline.
+8. Select **Publish all** to save your new pipeline, and then select **Publish**.
 
     ![Publish all is highlighted.](images/publish-all-1.png "Publish all")
 
@@ -474,7 +474,7 @@ Now that the pipeline run is complete, let's take a look at the SQL table to ver
 
 2. Expand the **SqlPool01** database underneath the **Workspace** section, then expand **Tables** (you may need to refresh to see the new tables).
 
-3. Right-click the **wwi.CampaignAnalytics** table, then select **New SQL script** and **Select TOP 1000 rows**. 
+3. Right-click the **wwi.CampaignAnalytics** table, then select **New SQL script** and **Select TOP 100 rows**. 
 
     ![The Select TOP 1000 rows menu item is highlighted.](images/select-top-1000-rows-campaign-analytics.png "Select TOP 1000 rows")
 
