@@ -232,7 +232,7 @@ You decide to create an external table that connects to the external data source
 
 Let's create a view to wrap a SQL query. Views allow you to reuse queries and are needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pools.
 
-1. In the **Data** hub, on the **Linked** tab, in the **Azure Data Lake Storage Gen2/asaworkspace*xxxxxx*/ wwi-02** container, avigate to the **customer-info** folder. Then right-click the **customerinfo.csv** file, select **New SQL script**, and then **Select TOP 100 rows**.
+1. In the **Data** hub, on the **Linked** tab, in the **Azure Data Lake Storage Gen2/asaworkspace*xxxxxx*/ wwi-02** container, navigate to the **customer-info** folder. Then right-click the **customerinfo.csv** file, select **New SQL script**, and then **Select TOP 100 rows**.
 
     ![The Data hub is displayed with the options highlighted.](images/customerinfo-select-rows.png "Select TOP 100 rows")
 
