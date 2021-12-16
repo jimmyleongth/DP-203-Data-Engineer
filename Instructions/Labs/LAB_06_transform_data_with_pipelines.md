@@ -474,7 +474,7 @@ Now that the pipeline run is complete, let's take a look at the SQL table to ver
 
 2. Expand the **SqlPool01** database underneath the **Workspace** section, then expand **Tables** (you may need to refresh to see the new tables).
 
-3. Right-click the **wwi.CampaignAnalytics** table, then select **New SQL script** and **Select TOP 1000 rows**. 
+3. Right-click the **wwi.CampaignAnalytics** table, then select **New SQL script** and **Select TOP 100 rows**. 
 
     ![The Select TOP 1000 rows menu item is highlighted.](images/select-top-1000-rows-campaign-analytics.png "Select TOP 1000 rows")
 
@@ -642,7 +642,7 @@ To do this, you will build a mapping data flow that performs the following tasks
 
         ![The add column menu item is highlighted.](images/data-flow-add-derived-column.png "Add derived column")
 
-        These expressions covert the **productid** and **itemsPurchasedLast12Months** columns values to integers.
+        These expressions convert the **productid** and **itemsPurchasedLast12Months** columns values to integers.
 
 15. Select **Add Source** on the data flow canvas beneath the **EcommerceUserProfiles** source.
 
