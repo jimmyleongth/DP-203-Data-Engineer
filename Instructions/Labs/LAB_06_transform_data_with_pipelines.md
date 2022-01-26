@@ -642,7 +642,7 @@ To do this, you will build a mapping data flow that performs the following tasks
 
         ![The add column menu item is highlighted.](images/data-flow-add-derived-column.png "Add derived column")
 
-        These expressions covert the **productid** and **itemsPurchasedLast12Months** columns values to integers.
+        These expressions convert the **productid** and **itemsPurchasedLast12Months** columns values to integers.
 
 15. Select **Add Source** on the data flow canvas beneath the **EcommerceUserProfiles** source.
 
