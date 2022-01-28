@@ -59,8 +59,10 @@ Before starting this lab, ensure you have successfully completed the setup steps
 3. Enter the following command to run a PowerShell script that creates objects in the SQL pool:
 
     ```
-    .\setup-sql.ps1
+    .\dp-203-setup-Part02.ps1
     ```
+
+    >**NOTE**: This script should run in roughly 5-10 minutes and loads data into Synapse.
 
 4. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell.
 
@@ -73,13 +75,13 @@ Before starting this lab, ensure you have successfully completed the setup steps
 8. **Continue on to Exercise 1** while this script is running.
 
 > **NOTE** This script will take about 2-3 minutes to complete.
-> 
+>
 > If it seems as though the script hangs while creating linked services for the SQLPool01 dedicated SQL pool (there are 3), press **Enter**. This tends to refresh the PowerShell script and allows it to continue to the end.
 >
 > ### Potential errors that you can ignore
 >
 > You may encounter a few errors and warnings during the script execution. The errors below can safely be ignored:
-> 
+>
 > 1. The following error may occur when creating SQL users and adding role assignments in the dedicated SQL pool, and can safely be ignored:
 >
 >       *Principal 'xxx@xxx.com' could not be created. Only connections established with Active Directory accounts can create other Active Directory users.*
@@ -254,7 +256,7 @@ In this task, you will use a Synapse Spark notebook to explore a few of the file
 
 3. Import the **Explore with Spark.ipynb** notebook in the C:\dp-203\data-engineering-ilt-deployment\Allfiles\synapse-apache-spark-notebooks folder.
 
-4. Follow the instructions contained within the notebook to complete the remainder of this task, attaching it to the **SparkPool01** Spark pool. Note that the first cell may take some time to run as the Spark pool must be started. 
+4. Follow the instructions contained within the notebook to complete the remainder of this task, attaching it to the **SparkPool01** Spark pool. Note that the first cell may take some time to run as the Spark pool must be started.
 
 5. When you have completed the **Explore with Spark** notebook, select on the **Stop Session** button on the right hand side of the notebook toolbar to release the Spark cluster for the next exercise.
 
@@ -530,7 +532,7 @@ In addition to the sales data, Tailwind Traders has customer profile data from a
 
     ![An error is displayed.](images/sort-desc-error.png "Sort desc error")
 
-    Notice that there is an **AnalysisException**`** error, because **itemsPurchasedLast12Months desc** does not match up with a column name.
+    Notice that there is an **AnalysisException**`**error, because**itemsPurchasedLast12Months desc** does not match up with a column name.
 
     Why does this not work?
 

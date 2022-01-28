@@ -526,13 +526,46 @@ To run loads with appropriate compute resources, create loading users designated
 
     ![The completed pipeline run is displayed.](images/pipeline-copy-sales-pipeline-run.png "Pipeline runs")
 
-## Important: Pause your SQL pool
 
-Complete these steps to free up resources you no longer need.
+### Task 3: Execute PowerShell script to Prepare CosmosDB
 
-1. In Synapse Studio, select the **Manage** hub.
-2. Select **SQL pools** in the left-hand menu. Hover over the **SQLPool01** dedicated SQL pool and select **||**.
+1. In the hosted VM environment provided for this course, open Powershell in administrator mode, and execute the following to set the execution policy to Unrestricted so you can run the local PowerShell script file:
+
+    ```
+    Set-ExecutionPolicy Unrestricted
+    ```
+
+    > **Note**: If you receive a prompt that you are installing the module from an untrusted repository, select **Yes to All** to proceed with the setup.
+
+2. Change directories to the root of this repo within your local file system.
+
+    ```
+    cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
+    ```
+
+3. Enter the following command to run a PowerShell script that Creates the Cosmos DB objects and runs the pipelines to load the data from Synapse to Cosmos DB:
+
+    ```
+    .\dp-203-setup-Part03.ps1
+    ```
+
+    >**NOTE**: This script should run in roughly 10-15 minutes and loads data into CosmosDB.
+
+4. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell.
+
+5. When prompted, sign into your Azure account again (this is required so that the script can manage resources in your Azure subscription - be sure you use the same credentials as before).
+
+6. If you have more than one Azure subscription, when prompted, select the one you want to use in the labs by entering its number in the list of subscriptions.
+
+7. In Synapse Studio, select the **Manage** hub.
+8. Select **SQL pools** in the left-hand menu. Hover over the **SQLPool01** dedicated SQL pool and select **||**.
 
     ![The pause button is highlighted on the dedicated SQL pool.](images/pause-dedicated-sql-pool.png "Pause")
 
-3. When prompted, select **Pause**.
+9. When prompted, select **Pause**.
+
+
+
+## Important: Pause your SQL pool when the PowerShell script has completed running
+
+Complete these steps to free up resources you no longer need.

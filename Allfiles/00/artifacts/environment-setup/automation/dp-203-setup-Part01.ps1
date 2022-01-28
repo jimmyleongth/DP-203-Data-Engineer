@@ -86,6 +86,7 @@ while ($complexPassword -ne 1)
 
 
 # Register resource providers
+
 Write-Host "Registering resource providers...";
 Register-AzResourceProvider -ProviderNamespace Microsoft.Databricks
 Register-AzResourceProvider -ProviderNamespace Microsoft.Synapse
@@ -106,7 +107,8 @@ $resourceGroupName = "data-engineering-synapse-$suffix"
 # (required to balance resource capacity across regions)
 Write-Host "Selecting a region for deployment..."
 
-$preferred_list = "australiaeast","centralus","eastus2","northeurope", "southcentralus", "southeastasia","uksouth","westeurope","westus","westus2"
+#$preferred_list = "australiaeast","centralus","eastus2","northeurope", "southcentralus", "southeastasia","uksouth","westeurope","westus","westus2"
+$preferred_list = "southcentralus","eastus2","westus","westus2"
 $locations = Get-AzLocation | Where-Object {
     $_.Providers -contains "Microsoft.Synapse" -and
     $_.Providers -contains "Microsoft.Databricks" -and
@@ -123,6 +125,7 @@ $max_index = $locations.Count - 1
 $rand = (0..$max_index) | Get-Random
 $random_location = $locations.Get($rand).Location
 
+Write-Host "Try to create a SQL Databasde resource to test for capacity constraints";
 # Try to create a SQL Databasde resource to test for capacity constraints
 $success = 0
 $tried_list = New-Object Collections.Generic.List[string]
@@ -150,13 +153,13 @@ Write-Host "Selected region: $random_location"
 
 # Use ARM template to deploy resources
 Write-Host "Creating Azure resources. This may take some time..."
+
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile "00-asa-workspace-core.json" `
   -Mode Complete `
   -uniqueSuffix $suffix `
   -sqlAdministratorLoginPassword $sqlPassword `
   -Force
-
 
 # Post-deployment configuration begins here
 Write-Host "Performing post-deployment configuration..."
@@ -168,9 +171,6 @@ $tenantId = (Get-AzContext).Tenant.Id
 $global:logindomain = (Get-AzContext).Tenant.Id;
 
 $workspaceName = "asaworkspace$($suffix)"
-$cosmosDbAccountName = "asacosmosdb$($suffix)"
-$cosmosDbDatabase = "CustomerProfile"
-$cosmosDbContainer = "OnlineUserProfile01"
 $dataLakeAccountName = "asadatalake$($suffix)"
 $blobStorageAccountName = "asastore$($suffix)"
 $keyVaultName = "asakeyvault$($suffix)"
@@ -253,106 +253,31 @@ $blobStorageAccountKey = List-StorageAccountKeys -SubscriptionId $subscriptionId
 $result = Create-BlobStorageLinkedService -TemplatesPath $templatesPath -WorkspaceName $workspaceName -Name $blobStorageAccountName  -Key $blobStorageAccountKey
 Wait-ForOperation -WorkspaceName $workspaceName -OperationId $result.operationId
 
-Write-Information "Copy Data"
-Write-Host "Uploading data to Azure..."
-
-Ensure-ValidTokens $true
-
-if ([System.Environment]::OSVersion.Platform -eq "Unix")
-{
-        $azCopyLink = Check-HttpRedirect "https://aka.ms/downloadazcopy-v10-linux"
-
-        if (!$azCopyLink)
-        {
-                $azCopyLink = "https://azcopyvnext.azureedge.net/release20200709/azcopy_linux_amd64_10.5.0.tar.gz"
-        }
-
-        Invoke-WebRequest $azCopyLink -OutFile "azCopy.tar.gz"
-        tar -xf "azCopy.tar.gz"
-        $azCopyCommand = (Get-ChildItem -Path ".\" -Recurse azcopy).Directory.FullName
-        cd $azCopyCommand
-        chmod +x azcopy
-        cd ..
-        $azCopyCommand += "\azcopy"
+$SetupStep2Variables = "
+# Values from the first setup script here
+`$selectedSub = `"$selectedSub`"
+`$suffix = `"$suffix`"
+`$subscriptionId = `"$subscriptionId`"
+`$resourceGroupName = `"$resourceGroupName`"
+`$workspaceName = `"$workspaceName`"
+`$global:logindomain = `"$global:logindomain`"
+`$global:sqlEndpoint = `"$global:sqlEndpoint`"
+`$global:sqlUser = `"$global:sqlUser`"
+`$global:synapseToken = `"`"
+`$global:synapseSQLToken = `"`"
+`$global:managementToken = `"`"
+`$global:powerbiToken = `"`"
+`$global:tokenTimes = [ordered]@{
+        Synapse = (Get-Date -Year 1)
+        SynapseSQL = (Get-Date -Year 1)
+        Management = (Get-Date -Year 1)
+        PowerBI = (Get-Date -Year 1)
 }
-else
-{
-        $azCopyLink = Check-HttpRedirect "https://aka.ms/downloadazcopy-v10-windows"
+"
 
-        if (!$azCopyLink)
-        {
-                $azCopyLink = "https://azcopyvnext.azureedge.net/release20200501/azcopy_windows_amd64_10.4.3.zip"
-        }
+((Get-Content -path .\dp-203-setup-Part02.ps1 -Raw) -replace '# Add Values from the first setup script here',"$SetupStep2Variables") | Set-Content -Path .\dp-203-setup-Part02.ps1
 
-        Invoke-WebRequest $azCopyLink -OutFile "azCopy.zip"
-        Expand-Archive "azCopy.zip" -DestinationPath ".\" -Force
-        $azCopyCommand = (Get-ChildItem -Path ".\" -Recurse azcopy.exe).Directory.FullName
-        $azCopyCommand += "\azcopy"
-}
+((Get-Content -path .\dp-203-setup-Part03.ps1 -Raw) -replace '# Add Values from the first setup script here',"$SetupStep2Variables") | Set-Content -Path .\dp-203-setup-Part03.ps1
 
-#$jobs = $(azcopy jobs list)
-
-$download = $true;
-
-$dataLakeStorageUrl = "https://"+ $dataLakeAccountName + ".dfs.core.windows.net/"
-$dataLakeStorageBlobUrl = "https://"+ $dataLakeAccountName + ".blob.core.windows.net/"
-$dataLakeStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -AccountName $dataLakeAccountName)[0].Value
-$dataLakeContext = New-AzStorageContext -StorageAccountName $dataLakeAccountName -StorageAccountKey $dataLakeStorageAccountKey
-
-$destinationSasKey = New-AzStorageContainerSASToken -Container "wwi-02" -Context $dataLakeContext -Permission rwdl
-
-if ($download)
-{
-        Write-Information "Copying wwi-02 directory to the data lake..."
-        $wwi02 = Resolve-Path "../../../../wwi-02"
-
-        $dataDirectories = @{
-                salesmall = "wwi-02,/sale-small/"
-                analytics = "wwi-02,/campaign-analytics/"
-                security = "wwi-02,/security/"
-                salespoc = "wwi-02,/sale-poc/"
-                datagenerators = "wwi-02,/data-generators/"
-                profiles1 = "wwi-02,/online-user-profiles-01/"
-                profiles2 = "wwi-02,/online-user-profiles-02/"
-                customerinfo = "wwi-02,/customer-info/"
-        }
-
-        foreach ($dataDirectory in $dataDirectories.Keys) {
-
-                $vals = $dataDirectories[$dataDirectory].tostring().split(",");
-
-                $source = $wwi02.Path + $vals[1];
-
-                $path = $vals[0];
-
-                $destination = $dataLakeStorageBlobUrl + $path + $destinationSasKey
-                Write-Information "Copying directory $($source) to $($destination)"
-                & $azCopyCommand copy $source $destination --recursive=true
-        }
-}
-
-Refresh-Tokens
-
-
-Write-Information "Create SQL scripts"
-Write-Host "Creating SQL scripts..."
-
-$sqlScripts = [ordered]@{
-        "Column Level Security" = "Column Level Security"
-        "Dynamic Data Masking" = "Dynamic Data Masking"
-        "Row Level Security" = "Row Level Security"
-        "Data Warehouse Optimization" = "Data Warehouse Optimization"
-}
-
-foreach ($sqlScriptName in $sqlScripts.Keys) {
-        
-        $sqlScriptFileName = "$sqlScriptName.sql"
-        Write-Information "Creating SQL script $($sqlScriptName) from $($sqlScriptFileName)"
-        
-        $result = Create-SQLScript -TemplatesPath $templatesPath -WorkspaceName $workspaceName -Name $sqlScriptName -ScriptFileName $sqlScriptFileName
-        $result = Wait-ForOperation -WorkspaceName $workspaceName -OperationId $result.operationId
-        $result
-}
-
-Refresh-Tokens
+$SetupStep2Variables
 

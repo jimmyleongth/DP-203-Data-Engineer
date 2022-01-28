@@ -44,6 +44,8 @@ Perform the following tasks to prepare your environment for the labs.
 
 3. In Windows PowerShell, run the following command set the execution policy so you can run a local PowerShell script file:
 
+    > **Note**: You may need to run Windows PowerShell in Administrator.  To complete this, right click on Windows PowerShell and select "Run as Administrator". 
+
     ```
     Set-ExecutionPolicy Unrestricted
     ```
@@ -59,8 +61,9 @@ Perform the following tasks to prepare your environment for the labs.
 5. In Windows PowerShell, enter the following command to run the setup script:
 
     ```
-    .\dp-203-setup.ps1
+    .\dp-203-setup-Part01.ps1
     ```
+    >**Note**: This first script creates and prepares most of the Azure accounts we need (except for Cosmos DB). It takes around 10-15 minutes to complete.
 
 6. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell, which should display the Azure subscriptions to which you have access.
 
@@ -72,6 +75,7 @@ Perform the following tasks to prepare your environment for the labs.
 
 While the script runs, your instructor will present the first module of the course. Your environment should be ready for you when it's time to start the first lab.
 
-> **Note**: The script will take about 45-60 minutes to complete. The script will create the Azure resources with randomly generated names. If the script appears to "stall" (no new information is displayed for 10 minutes) press ENTER and check for any error messages - often the script will continue without any issues.  In some rare cases, an identical resource name may already be in use, there may be capacity constraints for specific resources in the randomly selected region, or transient network issues may occur; causing an error. If this happens, use the Azure portal to delete the **data-engineering-synapse-*xxxxxx*** resource group created by the script and re-run the script.
+> **Note**: The first script will take around 10 to 15 minutes to complete. The first script will create the Azure resources with randomly generated names. If the script appears to "stall" (no new information is displayed for 10 minutes) press ENTER and check for any error messages - often the script will continue without any issues.  In some rare cases, an identical resource name may already be in use, there may be capacity constraints for specific resources in the randomly selected region, or transient network issues may occur; causing an error. If this happens, use the Azure portal to delete the **data-engineering-synapse-*xxxxxx*** resource group created by the script and re-run the script.
 >
 > If an error indicating that you must supply the **tenant ID** for your Azure pass subscription is displayed, ensure you have followed the instructions in the **Requirements** section above to enable only the Azure Pass subscription that you want to use.
+You will have **2 additional script** files to run in later labs prio
