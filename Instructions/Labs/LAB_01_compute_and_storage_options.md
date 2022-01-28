@@ -265,7 +265,7 @@ for file in files:
 
 ### Task 3 Stop the session
 
-1. At the top right of the notebook, use the **Stop Session** button to stop the notebook session.
+1. At the top right of the notebook, use the **Stop Session** button and then select **Stop now** to stop the notebook session.
 1. Publish the notebook if you want to review it again later. Then close it.
 
 ## Resources
