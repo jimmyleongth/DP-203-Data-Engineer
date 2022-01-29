@@ -411,7 +411,7 @@ To test out the permissions, we will add your own account to the groups.
 
 3. Now you should see that the **tailwind-2019-writers** group is selected in the Manage ACL dialog. Check **Read**, **Write**, and **Execute** checkboxes, then select **Save**.
 
-4. In the Manage ACL screen, select the **Default permissions** tab. Enable the checkbox for **Configure default permissions**, then click on **+ Add principal**, paste the **object Id** value you copied from the **tailwind-2019-writers** security group into the **Add  principal** search box, click on **tailwind-2019-writers-suffix**, then select **Select**, and then select **Save**.
+4. In the Manage ACL screen, select the **Default permissions** tab. Enable the checkbox for **Configure default permissions**, then click on **+ Add principal**, paste the **object Id** value you copied from the **tailwind-2019-writers** security group into the **Add  principal** search box, click on **tailwind-2019-writers-suffix**, then select **Select**. Check **Read**, **Write**, and **Execute** checkboxes for the new object, then select **Save**
 
     Now the security ACLs have been set to allow any users added to the **tailwind-current** security group to write to the **Year=2019** folder, by way of the **tailwind-2019-writers** group. These users can only manage current (2019 in this case) sales files.
 
