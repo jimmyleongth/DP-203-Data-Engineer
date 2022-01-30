@@ -93,19 +93,12 @@ In this exercise, you will use an Azure Databricks workspace and perform Structu
     .\dp-203-setup-Part02.ps1
     ```
 
-    >**NOTE**: This script should run in roughly 5-10 minutes and loads data into Synapse.
+4. When the script is completed run the following command in the PowerShell window
+   ```
+   exit
+   ```
 
-4. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell.
-
-5. When prompted, sign into your Azure account again (this is required so that the script can manage resources in your Azure subscription - be sure you use the same credentials as before).
-
-6. If you have more than one Azure subscription, when prompted, select the one you want to use in the labs by entering its number in the list of subscriptions.
-
-7. When prompted, enter the name of the resource group containing your Azure Synapse Analytics workspace (such as **data-engineering-synapse-*xxxxxxx***).
-
-8. **Continue on to Exercise 1** while this script is running.
-
-> **NOTE** This script will take about 2-3 minutes to complete.
+    >**NOTE**: This script should run in roughly 10-15 minutes and loads data into Synapse.
 >
 > If it seems as though the script hangs while creating linked services for the SQLPool01 dedicated SQL pool (there are 3), press **Enter**. This tends to refresh the PowerShell script and allows it to continue to the end.
 >
