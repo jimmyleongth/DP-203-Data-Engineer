@@ -120,6 +120,7 @@ In this exercise, you will use an Azure Databricks workspace and perform Structu
 >2. The following error may also occur and can safely be ignored:
 >
 >       *07-create-wwi-perf-sale-heap with label CTAS : Sale_Heap. Cannot index into a null array.*
+> 
 ## Exercise 2 - Working with Apache Spark in Synapse Analytics
 
 This exercise demonstrates the experience of working with Apache Spark in Azure Synapse Analytics. You will also learn how to use libraries like Hyperspace and MSSparkUtil to optimize the experience of working with Data Lake storage accounts from Spark notebooks.
