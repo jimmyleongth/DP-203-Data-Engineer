@@ -125,7 +125,7 @@ $max_index = $locations.Count - 1
 $rand = (0..$max_index) | Get-Random
 $random_location = $locations.Get($rand).Location
 
-Write-Host "Try to create a SQL Databasde resource to test for capacity constraints";
+Write-Host "Try to create a SQL Database resource to test for capacity constraints";
 # Try to create a SQL Databasde resource to test for capacity constraints
 $success = 0
 $tried_list = New-Object Collections.Generic.List[string]
