@@ -94,7 +94,7 @@ In this exercise, you will use an Azure Databricks workspace and perform Structu
     ```
 
 4. When the script is completed run the following command in the PowerShell window:
-5. 
+   
    ```
    exit
    ```
