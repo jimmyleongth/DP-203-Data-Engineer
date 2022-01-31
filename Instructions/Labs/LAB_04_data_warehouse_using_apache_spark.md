@@ -40,6 +40,37 @@ Before starting this lab, ensure you have successfully completed the setup steps
 
 > **Important:** Once started, a dedicated SQL pool consumes credits in your Azure subscription until it is paused. If you take a break from this lab, or decide not to complete it; follow the instructions at the end of the lab to **pause your SQL pool**
 
+### Task 2: Execute PowerShell Script
+
+1. In the hosted VM environment provided for this course, open Powershell in administrator mode, and execute the following to set the execution policy to Unrestricted so you can run the local PowerShell script file:
+
+    ```
+    Set-ExecutionPolicy Unrestricted
+    ```
+
+    > **Note**: If you receive a prompt that you are installing the module from an untrusted repository, select **Yes to All** to proceed with the setup.
+
+2. Change directories to the root of this repo within your local file system.
+
+    ```
+    cd C:\dp-203\data-engineering-ilt-deployment\Allfiles\00\artifacts\environment-setup\automation\
+    ```
+
+3. Enter the following command to run a PowerShell script that creates objects in the SQL pool:
+
+    ```
+    .\setup-sql.ps1
+    ```
+
+4. When prompted to sign into Azure, and your browser opens; sign in using your credentials. After signing in, you can close the browser and return to Windows PowerShell.
+
+5. When prompted, sign into your Azure account again (this is required so that the script can manage resources in your Azure subscription - be sure you use the same credentials as before).
+
+6. If you have more than one Azure subscription, when prompted, select the one you want to use in the labs by entering its number in the list of subscriptions.
+
+7. When prompted, enter the name of the resource group containing your Azure Synapse Analytics workspace (such as **data-engineering-synapse-*xxxxxxx***).
+
+8. **Continue on to Exercise 1** while this script is running.
 ## Exercise 1 - Perform Data Exploration in Synapse Studio
 
 One of the first data engineering tasks typically performed during data ingestion is to explore the data that is to be imported. Data exploration allows engineers to understand better the contents of files being ingested. This process helps to identify any potential data quality issues that might hinder automated ingestion processes. Through exploration, we can gain insights into data types, data quality, and whether any processing needs to be performed on the files prior to importing the data into your data lake or using it for analytics workloads.
