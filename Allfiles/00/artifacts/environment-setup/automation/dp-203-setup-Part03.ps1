@@ -60,7 +60,7 @@ Write-Information "Found $documentCount in Cosmos DB container $($cosmosDbContai
 if ($documentCount -ne 100000) 
 {
         # Increase RUs in CosmosDB container
-        Write-Information "Increase Cosmos DB container $($cosmosDbContainer) to 10000 RUs"
+        Write-Information "Increase Cosmos DB container $($cosmosDbContainer) to 400 RUs"
 
         $container = Get-AzCosmosDBSqlContainer `
                 -ResourceGroupName $resourceGroupName `
@@ -69,7 +69,7 @@ if ($documentCount -ne 100000)
 
         Update-AzCosmosDBSqlContainer -ResourceGroupName $resourceGroupName `
                 -AccountName $cosmosDbAccountName -DatabaseName $cosmosDbDatabase `
-                -Name $cosmosDbContainer -Throughput 10000 `
+                -Name $cosmosDbContainer -Throughput 400 `
                 -PartitionKeyKind $container.Resource.PartitionKey.Kind `
                 -PartitionKeyPath $container.Resource.PartitionKey.Paths
 
