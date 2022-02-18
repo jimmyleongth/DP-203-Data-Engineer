@@ -257,7 +257,7 @@ In this task, you will configure Stream Analytics to use the event hub you creat
 
     ![The query above has been inserted into the Query window.](images/stream-analytics-query.png 'Query window')
 
-    The query averages the engine temperature and speed over a two second duration. The query aggregates the average engine temperature and speed of all vehicles over the past two minutes, using **TumblingWindow(Duration(minute, 2))**, and outputs these fields to the **synapse** output.
+   The query aggregates the average engine temperature and speed of all vehicles over the past two minutes, using **TumblingWindow(Duration(minute, 2))**, and outputs these fields to the **synapse** output.
 
 15. Select **Save query** in the top toolbar when you are finished updating the query.
 
