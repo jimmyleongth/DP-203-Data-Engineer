@@ -129,7 +129,7 @@ Hyperspace lets you create indexes on records scanned from persisted data files.
 
 Also, Hyperspace allows users to compare their original plan versus the updated index-dependent plan before running their query.
 
-1. Open Synapse Studio at `https://web.azuresynapse.net`, and if prompted, select your Azure Active Directory tenant, subscription, and Azure Synapse Analytics workspace. If prompted with "We use optional cookies to provide a better experience." then select Accept.
+1. Open Synapse Studio at `https://web.azuresynapse.net`, and if prompted, select your Azure Active Directory tenant, subscription, and Azure Synapse Analytics workspace. If prompted with "We use optional cookies to provide a better experience." then select **Continue**.
 
 2. Select the **Develop** hub.
 
