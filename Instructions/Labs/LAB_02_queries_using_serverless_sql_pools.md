@@ -274,7 +274,7 @@ Let's create a view to wrap a SQL query. Views allow you to reuse queries and ar
 
     Notice that the first row no longer contains the column headers. This is because we used the FIRSTROW=2 setting in the OPENROWSET statement when we created the view.
 
-6. In the **Data** hub, select the **Workspace** tab. Then select the actions ellipses **(...)** to the right of the Databases group and select **&#8635; Refresh**.
+6. In the **Data** hub, select the **Workspace** tab. Then select the actions ellipses **(...)** to the right of the Databases group and select **&#8635; Refresh**. If the workspace is blank, then refresh the browser page.
 
     ![The refresh button is highlighted.](images/refresh-databases.png "Refresh databases")
 
