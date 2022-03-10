@@ -129,7 +129,7 @@ Hyperspace lets you create indexes on records scanned from persisted data files.
 
 Also, Hyperspace allows users to compare their original plan versus the updated index-dependent plan before running their query.
 
-1. Open Synapse Studio at `https://web.azuresynapse.net`, and if prompted, select your Azure Active Directory tenant, subscription, and Azure Synapse Analytics workspace. If prompted with "We use optional cookies to provide a better experience." then select Accept.
+1. Open Synapse Studio at `https://web.azuresynapse.net`, and if prompted, select your Azure Active Directory tenant, subscription, and Azure Synapse Analytics workspace. If prompted with "We use optional cookies to provide a better experience." then select **Continue**.
 
 2. Select the **Develop** hub.
 
@@ -309,7 +309,7 @@ for file in files:
 
 ### Task 3 Stop the session
 
-1. At the top right of the notebook, use the **Stop Session** button to stop the notebook session.
+1. At the top right of the notebook, use the **Stop Session** button and then select **Stop now** to stop the notebook session.
 1. Publish the notebook if you want to review it again later. Then close it.
 
 ## Resources

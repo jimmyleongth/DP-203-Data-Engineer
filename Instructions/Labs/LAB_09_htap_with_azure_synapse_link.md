@@ -49,9 +49,7 @@ By combining the distributed scale of Cosmos DB's transactional processing with 
 
     ![The Azure Cosmos DB account is highlighted.](images/resource-group-cosmos.png "Azure Cosmos DB account")
 
-3. Select **Features** in the left-hand menu, then select **Azure Synapse Link**.
-
-    ![The Features blade is displayed.](images/cosmos-db-features.png "Features")
+3. In the left-hand menu,  select **Azure Synapse Link**.
 
 4. Select **Enable**.
 
