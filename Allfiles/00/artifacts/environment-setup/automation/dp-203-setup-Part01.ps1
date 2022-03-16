@@ -107,7 +107,7 @@ $resourceGroupName = "data-engineering-synapse-$suffix"
 # (required to balance resource capacity across regions)
 Write-Host "Selecting a region for deployment..."
 
-$preferred_list = "australiaeast","centralus","eastus2","northeurope", "southcentralus", "southeastasia","uksouth","westeurope","westus","westus2"
+$preferred_list = "australiaeast","centralus","eastus2","northeurope", "southeastasia","uksouth","westeurope","westus","westus2"
 $locations = Get-AzLocation | Where-Object {
     $_.Providers -contains "Microsoft.Synapse" -and
     $_.Providers -contains "Microsoft.Databricks" -and
